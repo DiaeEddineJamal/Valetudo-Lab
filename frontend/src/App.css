@@ -1,4 +1,10 @@
 /* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
+
+/* Import Google Fonts just once */
+:root {
+  --transition-time: 2.3s;
+}
 
 /* Reset default margins and paddings */
 * {
@@ -8,16 +14,35 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Oswald', sans-serif;
+  background-color: #212121; /* Background color */
 }
 
 /* Navbar styles */
 nav {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 20px 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s ease-out;
+  backdrop-filter: blur(8px) brightness(1.2);
+  -webkit-backdrop-filter: blur(8px) brightness(1.2);
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: rgb(26, 123, 171);
+  font-size: medium;
+}
+
+nav.is-hidden {
+  transform: translateY(-100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 nav ul {
@@ -32,23 +57,20 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
-  font-size: 16px;
+  color: #2b54a2;
+  font-size: 20px;
 }
 
 /* Header styles */
-.homepage{
+.homepage {
   text-align: center;
   padding: 50px 0;
-  background-image: url('./Componenets/images/bgpic.jpg');
+  background-image: url('./Components/images/bgpic.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
-  
-  color: #5b5c5b;
 }
 
 .home h2 {
@@ -66,7 +88,6 @@ nav ul li a {
 .slick-next {
   font-size: 24px;
   color: #fff;
-  background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   z-index: 1;
 }
@@ -79,23 +100,10 @@ nav ul li a {
   right: -50px;
 }
 
-.slick-prev:hover,
-.slick-next:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
 /* Card styles */
-.principles-values-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
 .card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 10px;
   width: 300px;
@@ -104,10 +112,69 @@ nav ul li a {
 }
 
 .card h3 {
-  color: #333;
   margin-bottom: 10px;
 }
 
-.card p {
-  color: #666;
+/* Scrolling Text */
+.scrolling-text-container {
+  overflow: hidden;
+  background: linear-gradient(to right, rgb(10, 77, 132), #6ba2cf);
+  margin-top: 10px;
+  padding: 1%;
+}
+
+.scrolling-text {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Recommandations Section */
+#recommandations {
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#recommandations .heading h2 {
+  font-size: 3.5em;
+  font-weight: bold;
+  background: linear-gradient(to right, rgb(10, 77, 132), #6ba2cf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#recommandations .heading h2:hover {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+/* Mot du Directeur */
+.motdedirecteur {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.motdedirecteur h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.motdedirecteur img {
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.motdedirecteur p {
+  font-size: 1.1em;
+  line-height: 1.6;
 }
