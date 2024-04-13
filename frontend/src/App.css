@@ -15,7 +15,7 @@
 
 body {
   font-family: 'Oswald', sans-serif;
-  background-color: #212121; /* Background color */
+  background-color: #ffffff; /* Background color */
 }
 
 /* Navbar styles */
@@ -168,24 +168,46 @@ nav ul li a {
 
 /* Adjust margin-top to create space between cards and Mot du Directeur section */
 .motdedirecteur {
-  margin-top: 50px; /* Adjust this value to create the desired space */
-  text-align: center; /* Center align text */
+  margin-top: 50px; /* Ajustez cette valeur pour créer l'espace désiré */
+  text-align: center; /* Centrer le texte */
+  background-color: rgba(255, 255, 255, 0.645);
+  padding: -0.5px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .motdedirecteur img {
   width: 200px;
   border-radius: 50%;
   margin-bottom: 20px;
+  transition: transform 0.3s ease; /* Ajoute une transition fluide pour l'agrandissement */
 }
 
-.motdedirecteur p {
-  font-size: 1.1em;
-  line-height: 1.6;
+.motdedirecteur img:hover {
+  transform: scale(1.2); /* Agrandit l'image au survol */
 }
+
+/* Encadrement du div avec fond transparent */
+.motdedirecteur {
+  position: relative;
+}
+
+.motdedirecteur::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgb(255, 255, 255); /* Couleur et épaisseur du cadre */
+  border-radius: 10px; /* Ajustez la valeur pour la forme du cadre */
+  pointer-events: none; /* Permet aux événements de passer à travers, pour que seul l'image puisse être survolée */
+}
+
 
 /* Style for "Le Mot du Directeur" */
 .dirword {
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: bold;
   background: linear-gradient(to right, rgb(10, 77, 132), #6ba2cf);
   -webkit-background-clip: text;
@@ -195,18 +217,79 @@ nav ul li a {
   
 
   
+  
 }
-.cardsofresearchers {
-  display: flex;
-  justify-content: space-between; /* Adjust alignment as needed */
+.titrechercheurs, .paragchercheur {
+  background-color: white; /* Arrière-plan blanc */
+  padding: 10px; /* Espacement intérieur */
+  margin-left: -10px; /* Compensation pour le padding */
+  margin-right: -10px; /* Compensation pour le padding */
+}
+
+.researchercards {
+  overflow-x: hidden; /* Pour cacher tout contenu débordant horizontalement */
+  background-color: rgba(255, 255, 255, 0.5); /* Fond blanc transparent */
+  margin-top: 10px;
+}
+
+.row {
+  display: flex; /* Pour permettre à tous les éléments enfants d'être sur la même ligne */
+  transition: transform 0.3s ease; /* Pour une transition douce lors du glissement */
+}
+
+.col-md-4 {
+  flex: 0 0 33.3333%; /* Pour que chaque carte prenne 33.3333% de largeur */
+  max-width: 33.3333%; /* Pour que chaque carte ait une largeur maximale de 33.3333% */
 }
 
 .cardx {
-  flex: 1;
-  margin: 0 10px; /* Adjust margin as needed */
+  margin: 10px; /* Marge autour de chaque carte */
+  border-radius: 5px; /* Pour des coins arrondis */
+  overflow: hidden; /* Pour cacher tout contenu débordant */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour chaque carte */
 }
 
 .cardx img {
-  width: 100%; /* Ensures the image fills the card container */
+  width: 100%; /* Pour que l'image à l'intérieur de la carte soit de largeur 100% */
+  height: auto; /* Pour conserver le rapport hauteur/largeur de l'image */
 }
 
+/* Effet de survol */
+.cardx:hover {
+  transform: translateY(-5px); /* Pour déplacer légèrement la carte vers le haut au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Ombre plus prononcée au survol */
+}
+
+/* Pour les médias plus petits, ajustez les styles pour permettre le glissement horizontal */
+@media (max-width: 768px) {
+  .row {
+    flex-wrap: nowrap; /* Pour empêcher le retour à la ligne des cartes */
+  }
+}
+
+.containerpz {
+  display: flex;
+  justify-content: center; /* Centrer les éléments horizontalement */
+  width: 100%; /* Utiliser toute la largeur disponible */
+  overflow: hidden;
+}
+
+.lab-presentation, .objectifs {
+  width: 48%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transform-origin: center; /* L'origine de la transformation sera le centre */
+  animation: slideIn 2s ease-out;
+  margin-top: 10px;
+}
+
+@keyframes slideIn {
+  from {
+      transform: scaleX(0); /* Départ : complètement fermé */
+  }
+  to {
+      transform: scaleX(1); /* Arrivée : complètement ouvert */
+  }
+}

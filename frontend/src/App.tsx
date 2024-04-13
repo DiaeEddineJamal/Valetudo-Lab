@@ -6,6 +6,7 @@ import directeurpic from './Components/images/directeurpic.jpg';
 import researcher1 from './Components/images/researcher1.jpg'; // Import researcher images
 import researcher2 from './Components/images/researcher2.jpg'; // Import researcher images
 import researcher3 from './Components/images/researcher3.jpg'; // Import researcher images
+import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const HomePage: React.FC = () => {
           <li><a href="#motdedirecteur">A propos</a></li>
           <li><a href="#">Projet de recherche</a></li>
           <li><a href="#">Membre</a></li>
-          <li><a href="#">Publication</a></li>
+          <li><Link to="/pub">Publication</Link></li>
           {/* Add more list items for additional sections */}
         </ul>
       </nav>
@@ -46,7 +47,7 @@ const HomePage: React.FC = () => {
         </section>
         {/* End of Carousel Section */}
         {/* New Section with Cards */}
-        <section id="featured-services" className="featured-services">
+        <section id="featured-courss" className="featured-courss">
           <div className="container" data-aos="fade-up">
             <div className="row">
               {/* First Card */}
@@ -90,18 +91,23 @@ const HomePage: React.FC = () => {
           <p>En tant que directeur de laboratoire, je suis enthousiaste à l'idée de mettre en lumière les multiples utilités de notre site, le transformant en un pôle d'innovation. Au-delà de son infrastructure physique, notre site sert de point de convergence pour la collaboration, où une expertise diversifiée se réunit pour favoriser des idées révolutionnaires. Notre équipement de pointe et nos ressources permettent aux chercheurs d'explorer les frontières de la science et de la technologie, entraînant des découvertes dans divers domaines. De plus, notre engagement à favoriser un écosystème dynamique de créativité et d'interrogation nourrit un environnement propice à l'idéation. En facilitant les échanges interdisciplinaires et en offrant de nombreuses opportunités d'expérimentation, notre site transcende sa simple fonction de laboratoire pour devenir un catalyseur d'idées transformatrices qui ont le potentiel de remodeler les industries et d'améliorer les vies.</p>
         </div>
         <br />
+      <div className="containerpz">
         <div id="LabPresentation" className="lab-presentation">
-          <h1 className="lab-title">Présentation du Valetudo-Lab</h1>
-          <p>Le Laboratoire de Recherche du Laboratoire de Science Informatique et de la Programmation Evolutive (Valetudo-Lab) est un centre de recherche de pointe spécialisé dans les domaines de l'informatique et de l'évolution des programmes.</p>
-          <h2>Objectifs</h2>
-          <ul>
+        <h1 className="lab-title">Présentation du Valetudo-Lab</h1>
+        <p>Le Laboratoire de Recherche du Laboratoire de Science Informatique et de la Programmation Evolutive (Valetudo-Lab) est un centre de recherche de pointe spécialisé dans les domaines de l'informatique et de l'évolution des programmes.</p>
+        </div>
+        <div id="Objectifs" className="objectifs">
+        <h2>Objectifs</h2>
+        <ul>
             <li>Conduire des recherches de pointe dans les domaines de l'informatique et de la programmation évolutive.</li>
             <li>Développer des solutions innovantes pour résoudre les défis informatiques actuels et futurs.</li>
             <li>Collaborer avec d'autres institutions de recherche et de l'industrie pour favoriser l'avancement de la science informatique.</li>
             <li>Former la prochaine génération de chercheurs et de professionnels de l'informatique.</li>
             <li>Promouvoir une culture de collaboration et d'innovation au sein de la communauté scientifique.</li>
-          </ul>
-        </div>
+        </ul>
+    </div>
+</div>
+
         {/* Researcher Cards Section */}
         <div className='researchercards'>
           <h1 className="titrechercheurs" id='noschercheur'>Nos chercheurs</h1>
@@ -137,7 +143,9 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             </div>
+            
           </div>
+          
         </div>
         {/* End of Researcher Cards Section */}
         <div className='researchercards'>
