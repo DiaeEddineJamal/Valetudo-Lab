@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
- // Import your CSS file
- import './pubform.css';
+import { useNavigate } from 'react-router-dom';
+import axios, { AxiosError, AxiosResponse } from 'axios';
+import './pubform.css';
 
 const PublicationPage: React.FC = () => {
   const [research, setResearch] = useState<string>('');
@@ -9,16 +10,29 @@ const PublicationPage: React.FC = () => {
   const [subject, setSubject] = useState<string>('');
   const [upload, setUpload] = useState<File | null>(null);
   const [date, setDate] = useState<string>('');
+  const navigate = useNavigate();
 
   const handlePublish = () => {
-    // Publish the research and researcher name
-    // For now, let's just log the data
-    console.log("Research:", research);
-    console.log("Researcher Name:", researcherName);
-    console.log("Supervisor Name:", supervisorName);
-    console.log("Subject:", subject);
-    console.log("Date:", date);
-    console.log("Uploaded File:", upload);
+    const formData = new FormData();
+    formData.append('researcherName', researcherName);
+    formData.append('supervisorName', supervisorName);
+    formData.append('subject', subject);
+    formData.append('date', date);
+    formData.append('research', research);
+    if (upload) {
+      formData.append('file', upload);
+    }
+
+    axios.post('http://localhost:8080/pubinfos', formData)
+      .then((response: AxiosResponse<any>) => {
+        // Handle success, for example, redirect to another page
+        console.log('Publication saved successfully:', response.data);
+        navigate('/pub');
+      })
+      .catch((error: AxiosError) => {
+        // Handle error
+        console.error('Error saving publication:', error);
+      });
   };
 
   return (

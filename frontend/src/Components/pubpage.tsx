@@ -25,7 +25,7 @@ const PublicationPage: React.FC = () => {
       {/* Header section */}
       <header>
         <img src={pubpagepic} alt="Lab Header" />
-        <h1>Lab Name</h1>
+        <h1>Valetudo Lab</h1>
       </header>
 
       {/* Button to upload research */}

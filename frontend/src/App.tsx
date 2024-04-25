@@ -35,12 +35,12 @@ const HomePage: React.FC = () => {
             {/* Carousel Component */}
             <Carousel id="myCarousel" fade={true} indicators={false} controls={true}>
               <Carousel.Item>
-                <h3>"trop deblaballaaaa."</h3>
-                <h4>Sous titre blabla</h4>
+                <h3>"TO FILL."</h3>
+                <h4>Sous titre </h4>
               </Carousel.Item>
               <Carousel.Item>
-                <h3>"A replir lol fkfkddlddd."</h3>
-                <h4>sous titre blabla2</h4>
+                <h3>"A remplir "</h3>
+                <h4>sous titre </h4>
               </Carousel.Item>
             </Carousel>
           </div>
@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
                   <img src="placeholder.jpg" alt="Placeholder" />
                   <div className="card-body">
                     <h5 className="card-title">Title 1</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p className="card-text">Lorem ipsum dolo</p>
                   </div>
                 </div>
               </div>
@@ -111,7 +111,7 @@ const HomePage: React.FC = () => {
         {/* Researcher Cards Section */}
         <div className='researchercards'>
           <h1 className="titrechercheurs" id='noschercheur'>Nos chercheurs</h1>
-          <p className='paragchercheur'>Write something about researchers.</p>
+          <p className='paragchercheur'>about researchers.</p>
           <div className="row">
             {/* First Researcher Card */}
             <div className="col-md-4">

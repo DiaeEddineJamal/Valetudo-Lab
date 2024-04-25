@@ -1,71 +1,85 @@
 /* App.css */
 
+/* Whole page background */
+body {
+  background-color: #f4f4f4; /* Grey color */
+}
+
 /* Header styles */
 header {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    height: 400px; /* Adjust the height as needed */
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 400px; /* Adjust the height as needed */
+}
+
+header img {
+  width: 100vw; /* Set the width to 100% of the viewport width */
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire header area */
+  transition: transform 0.5s ease;
+}
+
+header img:hover {
+  transform: scale(1.1);
+}
+
+header h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  
-  header img {
-    width: 100vw; /* Set the width to 100% of the viewport width */
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire header area */
-    transition: transform 0.5s ease;
+  100% {
+    opacity: 1;
   }
-  
-  header img:hover {
-    transform: scale(1.1);
-  }
-  
-  header h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* Button styles */
-  button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #5e5e5e;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #b80900;
-  }
-  
-  /* Publications styles */
-  h2 {
-    margin-top: 30px;
-  }
-  
-  h3 {
-    margin-bottom: 5px;
-  }
-  
-  p {
-    margin: 5px 0;
-  }
+}
+
+/* Button styles */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #5e5e5e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b80900;
+}
+
+/* Publications styles */
+h2 {
+  margin-top: 30px;
+}
+
+/* Card-like publication style */
+.publication-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 5px 0;
+}
