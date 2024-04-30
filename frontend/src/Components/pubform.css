@@ -1,82 +1,33 @@
-.publication-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Needed for absolute positioning of the background */
-    background-image: url('./images/pubformbg.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-  }
-  
-  .publication-container:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .pubpageheader {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: rgb(255, 255, 255);
-  }
-  
-  .publication-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 1s ease; /* Appearance animation */
-    background-color: rgba(255, 255, 255, 0.9); /* Card background color */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .publication-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .publication-form input,
-  .publication-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .publication-form input:focus,
-  .publication-form textarea:focus {
-    outline: none;
-    border-color: rgba(110, 110, 110, 0.5);
-  }
-  
-  .publication-form button {
-    padding: 10px 20px;
-    background-color: #696767; /* Green */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .publication-form button:hover {
-    background-color: #a60000; /* Darker green */
-  }
-  
+.add-publication-form {
+  max-width: 300px; /* Adjusted max-width */
+  margin: 150px auto; /* Center the form vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Reduce margin-bottom */
+}
+
+label {
+  font-weight: bold;
+}
+
+.input-error {
+  border-color: #ff0000;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}

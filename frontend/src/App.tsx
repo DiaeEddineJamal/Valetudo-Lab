@@ -150,7 +150,7 @@ const HomePage: React.FC = () => {
         {/* End of Researcher Cards Section */}
         <div className='researchercards'>
           <h1 className="titrechercheurs">Nos Doctorant</h1>
-          <p className='paragchercheur'>Write something about researchers. al mbezla</p>
+          <p className='paragchercheur'>Write something about researchers</p>
           <div className="row">
             {/* First Researcher Card */}
             <div className="col-md-4">
