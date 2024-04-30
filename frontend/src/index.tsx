@@ -11,7 +11,8 @@ import {
 
 import Pubform from './Components/pubform';
 import Pubpage from './Components/pubpage';
-import AddMemberForm from './Components/adminpage';
+import AddMemberForm from './Components/Addmembersform';
+import AdminPanel from './Components/adminpage';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,12 @@ const router = createBrowserRouter([
     element: <Pubform/>,
   },
   {
-    path: "/admin",
+    path: "/addmemebers",
     element: <AddMemberForm/>,
+  },
+  {
+    path: "/admin",
+    element: <AdminPanel/>,
   },
 ]);
 

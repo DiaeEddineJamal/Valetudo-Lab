@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import './pubform.css';
 
+interface member {
+  id: number;
+  name: string;
+}
 const PublicationPage: React.FC = () => {
   const [research, setResearch] = useState<string>('');
   const [researcherName, setResearcherName] = useState<string>('');
