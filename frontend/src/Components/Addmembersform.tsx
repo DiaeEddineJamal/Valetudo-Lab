@@ -13,63 +13,98 @@ interface Team {
   name: string;
 }
 
-const AddMemberForm: React.FC = () => {
-  const [name, setName] = useState('');
-  const [keyword, setKeyword] = useState('');
-  const [isDoctorant, setIsDoctorant] = useState(false);
-  const [researchTopic, setResearchTopic] = useState('');
-  const [supervisor, setSupervisor] = useState('');
+interface FormData {
+  name: string;
+  keyword: string;
+  isDoctorant: boolean;
+  researchTopic: string;
+  supervisor: string;
+  teamId: number | '';
+  laboratoryId: number | '';
+}
+
+const useAddMemberForm = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    keyword: '',
+    isDoctorant: false,
+    researchTopic: '',
+    supervisor: '',
+    teamId: '',
+    laboratoryId: '',
+  });
+
   const [teams, setTeams] = useState<Team[]>([]);
-  const [selectedTeam, setSelectedTeam] = useState<number | ''>('');
   const [laboratories, setLaboratories] = useState<Laboratory[]>([]);
-  const [selectedLaboratory, setSelectedLaboratory] = useState<number | ''>('');
 
   useEffect(() => {
-    // Fetch teams from the backend
-    axios.get('http://localhost:8080/api/teams')
-      .then(response => {
-        setTeams(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching teams:', error);
-      });
-
-    // Fetch laboratories from the backend
-    axios.get('http://localhost:8080/api/laboratories')
-      .then(response => {
-        setLaboratories(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching laboratories:', error);
+    // Fetch teams and laboratories from the backend
+    axios
+      .all([
+        axios.get('http://localhost:8080/api/teams'),
+        axios.get('http://localhost:8080/api/laboratories'),
+      ])
+      .then(
+        axios.spread((teamsResponse, laboratoriesResponse) => {
+          setTeams(teamsResponse.data);
+          setLaboratories(laboratoriesResponse.data);
+        })
+      )
+      .catch((error) => {
+        console.error('Error fetching teams and laboratories:', error);
       });
   }, []);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, type, checked, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/members', {
-        name,
-        keyword,
-        isDoctorant,
-        researchTopic,
-        supervisor,
-        teamId: selectedTeam,
-        laboratoryId: selectedLaboratory
-      });
+      await axios.post('http://localhost:8080/api/members', formData);
       // Reset form fields after successful submission
-      setName('');
-      setKeyword('');
-      setIsDoctorant(false);
-      setResearchTopic('');
-      setSupervisor('');
-      setSelectedTeam('');
-      setSelectedLaboratory('');
+      setFormData({
+        name: '',
+        keyword: '',
+        isDoctorant: false,
+        researchTopic: '',
+        supervisor: '',
+        teamId: '',
+        laboratoryId: '',
+      });
       alert('Member added successfully!');
     } catch (error) {
       console.error('Error adding member:', error);
       alert('Failed to add member');
     }
   };
+
+  return {
+    formData,
+    handleInputChange,
+    handleSelectChange,
+    handleSubmit,
+    teams,
+    laboratories,
+  };
+};
+
+const AddMemberForm: React.FC = () => {
+  const { formData, handleInputChange, handleSelectChange, handleSubmit, teams, laboratories } =
+    useAddMemberForm();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -78,8 +113,9 @@ const AddMemberForm: React.FC = () => {
         <input
           type="text"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
           required
         />
       </div>
@@ -88,8 +124,9 @@ const AddMemberForm: React.FC = () => {
         <input
           type="text"
           id="keyword"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
+          name="keyword"
+          value={formData.keyword}
+          onChange={handleInputChange}
           required
         />
       </div>
@@ -98,20 +135,22 @@ const AddMemberForm: React.FC = () => {
           Is Doctorant:
           <input
             type="checkbox"
-            checked={isDoctorant}
-            onChange={(e) => setIsDoctorant(e.target.checked)}
+            name="isDoctorant"
+            checked={formData.isDoctorant}
+            onChange={handleInputChange}
           />
         </label>
       </div>
-      {isDoctorant && (
+      {formData.isDoctorant && (
         <>
           <div>
             <label htmlFor="researchTopic">Research Topic:</label>
             <input
               type="text"
               id="researchTopic"
-              value={researchTopic}
-              onChange={(e) => setResearchTopic(e.target.value)}
+              name="researchTopic"
+              value={formData.researchTopic}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -120,8 +159,9 @@ const AddMemberForm: React.FC = () => {
             <input
               type="text"
               id="supervisor"
-              value={supervisor}
-              onChange={(e) => setSupervisor(e.target.value)}
+              name="supervisor"
+              value={formData.supervisor}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -131,12 +171,15 @@ const AddMemberForm: React.FC = () => {
         <label htmlFor="team">Assign to Team:</label>
         <select
           id="team"
-          value={selectedTeam}
-          onChange={(e) => setSelectedTeam(Number(e.target.value))}
+          name="teamId"
+          value={formData.teamId}
+          onChange={handleSelectChange}
         >
           <option value="">Select a team</option>
-          {teams.map(team => (
-            <option key={team.id} value={team.id}>{team.name}</option>
+          {teams.map((team) => (
+            <option key={team.id} value={team.id}>
+              {team.name}
+            </option>
           ))}
         </select>
       </div>
@@ -144,12 +187,15 @@ const AddMemberForm: React.FC = () => {
         <label htmlFor="laboratory">Select Laboratory:</label>
         <select
           id="laboratory"
-          value={selectedLaboratory}
-          onChange={(e) => setSelectedLaboratory(Number(e.target.value))}
+          name="laboratoryId"
+          value={formData.laboratoryId}
+          onChange={handleSelectChange}
         >
           <option value="">Select a laboratory</option>
-          {laboratories.map(laboratory => (
-            <option key={laboratory.id} value={laboratory.id}>{laboratory.name}</option>
+          {laboratories.map((laboratory) => (
+            <option key={laboratory.id} value={laboratory.id}>
+              {laboratory.name}
+            </option>
           ))}
         </select>
       </div>

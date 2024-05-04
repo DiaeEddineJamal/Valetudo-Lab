@@ -1,14 +1,40 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import { Carousel } from 'react-bootstrap'; // Import Carousel component from react-bootstrap
-import './App.css'; // Import your custom CSS file
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import { Carousel } from 'react-bootstrap'; 
+import './App.css'; 
 import directeurpic from './Components/images/directeurpic.jpg';
-import researcher1 from './Components/images/researcher1.jpg'; // Import researcher images
-import researcher2 from './Components/images/researcher2.jpg'; // Import researcher images
-import researcher3 from './Components/images/researcher3.jpg'; // Import researcher images
+import researcher1 from './Components/images/researcher1.jpg'; 
+import researcher2 from './Components/images/researcher2.jpg'; 
+import researcher3 from './Components/images/researcher3.jpg'; 
 import { Link } from 'react-router-dom';
 
+interface Member {
+  id: number;
+  name: string;
+  isDoctorant: boolean;
+  imageUrl: string | null;
+}
+
 const HomePage: React.FC = () => {
+  const [researchers, setResearchers] = useState<Member[]>([]);
+  const [doctorants, setDoctorants] = useState<Member[]>([]);
+
+  useEffect(() => {
+    // Fetch member names and details from the backend
+    axios.get('http://localhost:8080/api/members')
+      .then(response => {
+        const fetchedMembers = response.data;
+        const fetchedResearchers = fetchedMembers.filter((member: Member) => !member.isDoctorant);
+        const fetchedDoctorants = fetchedMembers.filter((member: Member) => member.isDoctorant);
+        setResearchers(fetchedResearchers);
+        setDoctorants(fetchedDoctorants);
+      })
+      .catch(error => {
+        console.error('Error fetching members:', error);
+      });
+  }, []);
+
   return (
     <div className="App">
       <nav>
@@ -113,77 +139,43 @@ const HomePage: React.FC = () => {
           <h1 className="titrechercheurs" id='noschercheur'>Nos chercheurs</h1>
           <p className='paragchercheur'>about researchers.</p>
           <div className="row">
-            {/* First Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher1} alt="Researcher 1" />
-                <div className="card-body">
-                  <h5 className="card-title">Researcher Name 1</h5>
-                  <p className="card-text">Description of Researcher 1.</p>
+            {/* Map over fetched researchers */}
+            {researchers.map((researcher) => (
+              <div className="col-md-4" key={researcher.id}>
+                <div className="cardx">
+                  <img src={researcher.imageUrl || researcher.imageUrl || researcher1} alt={researcher.name} />
+                  <div className="card-body">
+                    <h5 className="card-title">{researcher.name}</h5>
+                    {/* Add additional researcher details if needed */}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* Second Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher2} alt="Researcher 2" />
-                <div className="cardx-body">
-                  <h5 className="cardx-title">Researcher Name 2</h5>
-                  <p className="cardx-text">Description of Researcher 2.</p>
-                </div>
-              </div>
-            </div>
-            {/* Third Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher2} alt="Researcher 3" />
-                <div className="cardx-body">
-                  <h5 className="cardx-title">Researcher Name 3</h5>
-                  <p className="cardx-text">Description of Researcher 3.</p>
-                </div>
-              </div>
-            </div>
-            
+            ))}
           </div>
-          
         </div>
         {/* End of Researcher Cards Section */}
+
+        {/* Doctorant Cards Section */}
         <div className='researchercards'>
-          <h1 className="titrechercheurs">Nos Doctorant</h1>
+          <h1 className="titrechercheurs">Nos Doctorants</h1>
           <p className='paragchercheur'>Write something about researchers</p>
           <div className="row">
-            {/* First Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher1} alt="doctorant1" />
-                <div className="card-body">
-                  <h5 className="card-title">doctorant Name 1</h5>
-                  <p className="card-text">Description .</p>
+            {/* Map over fetched doctorants */}
+            {doctorants.map((doctorant) => (
+              <div className="col-md-4" key={doctorant.id}>
+                <div className="cardx">
+                  <img src={doctorant.imageUrl || researcher1} alt={doctorant.name} />
+                  <div className="card-body">
+                    <h5 className="card-title">{doctorant.name}</h5>
+                    {/* Add additional doctorant details if needed */}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* Second Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher2} alt="Researcher 2" />
-                <div className="cardx-body">
-                  <h5 className="cardx-title">Researcher Name 2</h5>
-                  <p className="cardx-text">Description of Researcher 2.</p>
-                </div>
-              </div>
-            </div>
-            {/* Third Researcher Card */}
-            <div className="col-md-4">
-              <div className="cardx">
-                <img src={researcher2} alt="Researcher 3" />
-                <div className="cardx-body">
-                  <h5 className="cardx-title">Researcher Name 3</h5>
-                  <p className="cardx-text">Description of Researcher 3.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+        {/* End of Doctorant Cards Section */}
+        
       </div>
     </div>
   );
