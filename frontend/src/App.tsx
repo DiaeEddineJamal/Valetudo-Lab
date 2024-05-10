@@ -1,45 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import { Carousel } from 'react-bootstrap'; 
-import './App.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BiReceipt, BiCubeAlt, BiImages } from 'react-icons/bi'; // Importer BoxIcons
+import './App.css';
 import directeurpic from './Components/images/directeurpic.jpg';
-import researcher1 from './Components/images/researcher1.jpg'; 
-import researcher2 from './Components/images/researcher2.jpg'; 
-import researcher3 from './Components/images/researcher3.jpg'; 
+import researcher1 from './Components/images/researcher1.jpg';
+import researcher2 from './Components/images/researcher2.jpg';
+import researcher3 from './Components/images/researcher3.jpg';
 import { Link } from 'react-router-dom';
+import ouahmanePic from './assets/img/chercheurs/Ouahmane.png';
+import { FaUserMd, FaBed, FaFlask, FaMedal } from 'react-icons/fa';
+import lol from './assets/img/chercheurs/Aatila_Mustapha2.jpg';
+import { RiTwitterFill, RiFacebookFill, RiInstagramFill, RiLinkedinBoxFill } from 'react-icons/ri'; 
+import logo from './Components/images/logo.png' 
+import ProjetsSection from './Components/projets';
+import EquipesSection from './Components/equipesection';
+import Footer from './Components/footer';
+// emplacez Ri par le préfixe de votre bibliothèque d'icônes
 
-interface Member {
-  id: number;
-  name: string;
-  isDoctorant: boolean;
-  imageUrl: string | null;
-}
+const logoStyle = {
+  width: '190px',
+  height: '50px'
+};
 
 const HomePage: React.FC = () => {
-  const [researchers, setResearchers] = useState<Member[]>([]);
-  const [doctorants, setDoctorants] = useState<Member[]>([]);
+
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [labName, setLabName] = useState('');
 
   useEffect(() => {
-    // Fetch member names and details from the backend
-    axios.get('http://localhost:8080/api/members')
-      .then(response => {
-        const fetchedMembers = response.data;
-        const fetchedResearchers = fetchedMembers.filter((member: Member) => !member.isDoctorant);
-        const fetchedDoctorants = fetchedMembers.filter((member: Member) => member.isDoctorant);
-        setResearchers(fetchedResearchers);
-        setDoctorants(fetchedDoctorants);
-      })
-      .catch(error => {
-        console.error('Error fetching members:', error);
-      });
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/laboratories');
+      const data = await response.json();
+      if (data && data.length > 0) {
+        setAddress(data[0].address);
+        setPhoneNumber(data[0].phoneNumber);
+        setLabName(data[0].name); // Assuming the key for laboratory name is "name"
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   return (
     <div className="App">
+
       <nav>
         <div className="logo">
-          <img src="" alt="logo" /> {/* Add logo source */}
+          <img src={logo} alt="logo" style={logoStyle} />
         </div>
         <ul id="MyUL">
           <li><a href="#">Acceuil</a></li>
@@ -47,136 +59,247 @@ const HomePage: React.FC = () => {
           <li><a href="#">Projet de recherche</a></li>
           <li><a href="#">Membre</a></li>
           <li><Link to="/pub">Publication</Link></li>
-          {/* Add more list items for additional sections */}
+          {/* Add more list items for other sections */}
         </ul>
       </nav>
-      <div className="homepage">
-        {/* Carousel Section */}
-        <section id="recommandations">
+
+      <section id="hero" className="d-flex align-items-center">
+        <div className="container">
+          <h1>{labName}</h1>
+          <h2>Laboratoire de Technologies de l'Information (LTI)</h2>
+          <a href="#about" className="btn-get-started scrollto">Get Started</a>
+        </div>
+      </section>
+
+      <main id="main">
+        <section id="why-us" className="why-us">
           <div className="container">
-            <div className="red-divider"></div>
-            <div className="heading">
-              <h2>WELCOME TO OUR LAB !</h2>
-            </div>
-            {/* Carousel Component */}
-            <Carousel id="myCarousel" fade={true} indicators={false} controls={true}>
-              <Carousel.Item>
-                <h3>"TO FILL."</h3>
-                <h4>Sous titre </h4>
-              </Carousel.Item>
-              <Carousel.Item>
-                <h3>"A remplir "</h3>
-                <h4>sous titre </h4>
-              </Carousel.Item>
-            </Carousel>
-          </div>
-        </section>
-        {/* End of Carousel Section */}
-        {/* New Section with Cards */}
-        <section id="featured-courss" className="featured-courss">
-          <div className="container" data-aos="fade-up">
             <div className="row">
-              {/* First Card */}
-              <div className="col-md-4">
-                <div className="card">
-                  <img src="placeholder.jpg" alt="Placeholder" />
-                  <div className="card-body">
-                    <h5 className="card-title">Title 1</h5>
-                    <p className="card-text">Lorem ipsum dolo</p>
+              <div className="col-lg-4 d-flex align-items-stretch">
+                <div className="content">
+                  <h3>Présentation</h3>
+                  <p>
+                    Le laboratoire de Technologies de l'Information (LTI) est une structure de recherche domiciliée au département TRI et rattachée à l’École Nationale des Sciences Appliquées d’El Jadida (ENSAJ) de l’université Chouaib Doukkali. Le LTI a pour objectif d’inciter, de faciliter et de coordonner les activités <span id="suite">de recherche scientifique de ses membres, à titre individuel, mais surtout dans le cadre de projets collectifs à dimension nationale ou internationale. Il contribue à la production, à la diffusion et à la valorisation des travaux de recherche autour des technologies de l’information, ainsi qu’à la formation doctorale en Télécommunication, Réseaux et Informatique appliquée aux Techniques de Communications  et en sciences de l’information.</span>
+                  </p>
+                  <div className="text-center">
+                    <a id="read" href="javascript:{}" className="more-btn">Lire plus <i className="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
               </div>
-              {/* Second Card */}
-              <div className="col-md-4">
-                <div className="card">
-                  <img src="placeholder.jpg" alt="Placeholder" />
-                  <div className="card-body">
-                    <h5 className="card-title">Title 2</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </div>
-              </div>
-              {/* Third Card */}
-              <div className="col-md-4">
-                <div className="card">
-                  <img src="placeholder.jpg" alt="Placeholder" />
-                  <div className="card-body">
-                    <h5 className="card-title">Title 3</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div className="col-lg-8 d-flex align-items-stretch">
+                <div className="icon-boxes d-flex flex-column justify-content-center">
+                  <div className="row">
+                    <div className="col-xl-4 d-flex align-items-stretch">
+                      <div className="icon-box mt-4 mt-xl-0">
+                        <BiReceipt  style={{ width: '36px', height: '36px' }} /> {/* Utiliser BiReceipt */}
+                        <h4>Rigueur & Intégrité Scientifique</h4>
+                        <p>Contribuer à l'avancement des connaissances scientifiques</p>
+                      </div>
+                    </div>
+                    <div className="col-xl-4 d-flex align-items-stretch">
+                      <div className="icon-box mt-4 mt-xl-0">
+                        <BiCubeAlt style={{ width: '36px', height: '36px' }} /> {/* Utiliser BiCubeAlt */}
+                        <h4>Atteinte de l’Excellence</h4>
+                        <p>Assurer la formation des chercheurs de demain dans le domaine du numérique</p>
+                      </div>
+                    </div>
+                    <div className="col-xl-4 d-flex align-items-stretch">
+                      <div className="icon-box mt-4 mt-xl-0">
+                        <BiImages style={{ width: '36px', height: '36px' }} />
+                        <h4>Partage des Connaissances</h4>
+                        <p>Accroître l’innovation en développant de nouvelles solutions technologiques à fort impact socio-économique</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* End of New Section with Cards */}
-        {/* Title "Le Mot du Directeur" */}
-        <div id="motdedirecteur" className="motdedirecteur">
-          <h1 className='dirword'>Le Mot du Directeur</h1>
-          <img src={directeurpic} alt="directeur" />
-          <p>En tant que directeur de laboratoire, je suis enthousiaste à l'idée de mettre en lumière les multiples utilités de notre site, le transformant en un pôle d'innovation. Au-delà de son infrastructure physique, notre site sert de point de convergence pour la collaboration, où une expertise diversifiée se réunit pour favoriser des idées révolutionnaires. Notre équipement de pointe et nos ressources permettent aux chercheurs d'explorer les frontières de la science et de la technologie, entraînant des découvertes dans divers domaines. De plus, notre engagement à favoriser un écosystème dynamique de créativité et d'interrogation nourrit un environnement propice à l'idéation. En facilitant les échanges interdisciplinaires et en offrant de nombreuses opportunités d'expérimentation, notre site transcende sa simple fonction de laboratoire pour devenir un catalyseur d'idées transformatrices qui ont le potentiel de remodeler les industries et d'améliorer les vies.</p>
-        </div>
-        <br />
-      <div className="containerpz">
-        <div id="LabPresentation" className="lab-presentation">
-        <h1 className="lab-title">Présentation du Valetudo-Lab</h1>
-        <p>Le Laboratoire de Recherche du Laboratoire de Science Informatique et de la Programmation Evolutive (Valetudo-Lab) est un centre de recherche de pointe spécialisé dans les domaines de l'informatique et de l'évolution des programmes.</p>
-        </div>
-        <div id="Objectifs" className="objectifs">
-        <h2>Objectifs</h2>
-        <ul>
-            <li>Conduire des recherches de pointe dans les domaines de l'informatique et de la programmation évolutive.</li>
-            <li>Développer des solutions innovantes pour résoudre les défis informatiques actuels et futurs.</li>
-            <li>Collaborer avec d'autres institutions de recherche et de l'industrie pour favoriser l'avancement de la science informatique.</li>
-            <li>Former la prochaine génération de chercheurs et de professionnels de l'informatique.</li>
-            <li>Promouvoir une culture de collaboration et d'innovation au sein de la communauté scientifique.</li>
-        </ul>
-    </div>
-</div>
-
-        {/* Researcher Cards Section */}
-        <div className='researchercards'>
-          <h1 className="titrechercheurs" id='noschercheur'>Nos chercheurs</h1>
-          <p className='paragchercheur'>about researchers.</p>
-          <div className="row">
-            {/* Map over fetched researchers */}
-            {researchers.map((researcher) => (
-              <div className="col-md-4" key={researcher.id}>
-                <div className="cardx">
-                  <img src={researcher.imageUrl || researcher.imageUrl || researcher1} alt={researcher.name} />
-                  <div className="card-body">
-                    <h5 className="card-title">{researcher.name}</h5>
-                    {/* Add additional researcher details if needed */}
+        <section id="about" className="about">
+          <div className="container">
+            <div className="section-title">
+              <h2><u>MOT DU DIRECTEUR</u></h2>
+            </div>
+            <div className="container-fluid">
+              <div className="row align-content-center testimonials">
+                <div className="col-xl-11 col-lg-11 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+                  <div className="testimonial-wrap">
+                    <div className="testimonial-item">
+                      <img src={ouahmanePic} className="testimonial-img" alt="Directeur" />
+                      <h3>Prof. Hassan Ouahmane</h3>
+                      <h4>Directeur du laboratoire</h4>
+                      <p>
+                        {/* Ajoutez votre texte ici */}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+        </section>
+        <section id="counts" className="counts">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 col-md-6">
+            <div className="count-box">
+              <FaUserMd className="icon" /> {/* Utilisez l'icône FaUserMd */}
+              <span data-toggle="counter-up">18</span>
+              <p>Chercheurs</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div className="count-box">
+              <FaBed className="icon" /> {/* Utilisez l'icône FaBed */}
+              <span data-toggle="counter-up">3</span>
+              <p>Equipes</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div className="count-box">
+              <FaFlask className="icon" /> {/* Utilisez l'icône FaFlask */}
+              <span data-toggle="counter-up">20</span>
+              <p>Doctorants</p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div className="count-box">
+              <FaMedal className="icon" /> {/* Utilisez l'icône FaMedal */}
+              <span data-toggle="counter-up">5</span>
+              <p>Projets</p>
+            </div>
           </div>
         </div>
-        {/* End of Researcher Cards Section */}
-
-        {/* Doctorant Cards Section */}
-        <div className='researchercards'>
-          <h1 className="titrechercheurs">Nos Doctorants</h1>
-          <p className='paragchercheur'>Write something about researchers</p>
-          <div className="row">
-            {/* Map over fetched doctorants */}
-            {doctorants.map((doctorant) => (
-              <div className="col-md-4" key={doctorant.id}>
-                <div className="cardx">
-                  <img src={doctorant.imageUrl || researcher1} alt={doctorant.name} />
-                  <div className="card-body">
-                    <h5 className="card-title">{doctorant.name}</h5>
-                    {/* Add additional doctorant details if needed */}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* End of Doctorant Cards Section */}
-        
       </div>
+    </section>
+   <ProjetsSection></ProjetsSection>
+   <EquipesSection></EquipesSection>
+    <section id="chercheurs" className="chercheurs">
+  <div className="container">
+
+    <div className="section-title">
+      <h2>Chercheurs</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div className="row">
+      <div className="col-lg-6">
+        <div className="member d-flex align-items-start">
+          <div><img className="sp_img" src={lol} alt="Prof. Hassan Ouahmane" /></div>
+          <div className="member-info">
+            <h4>Prof. Hassan Ouahmane</h4>
+            <span>Directeur du laboratoire, Chef d'équipe</span>
+            <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+            <div className="social">
+            <a href="#"><RiTwitterFill /></a>
+<a href="#"><RiFacebookFill /></a>
+<a href="#"><RiInstagramFill /></a>
+<a href="#"><RiLinkedinBoxFill /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-lg-6">
+        <div className="member d-flex align-items-start">
+          <div><img className="sp_img" src={lol} alt="Prof. Mohamed Lachgar" /></div>
+          <div className="member-info">
+            <h4>Prof. Mohamed Lachgar</h4>
+            <span>Membre</span>
+            <p>Intelligence Artificielle; Ingénierie Dirigée par les Modèles; Programmation web & mobile.</p>
+            <div className="social">
+            <a href="#"><RiTwitterFill /></a>
+<a href="#"><RiFacebookFill /></a>
+<a href="#"><RiInstagramFill /></a>
+<a href="#"><RiLinkedinBoxFill /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+   
+      
+    <section id="testimonials" className="testimonials" style={{ backgroundColor: 'slategrey' }}>
+      <div className="container">
+        <div className="section-title">
+          <h2>Doctorants</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+        <div className="testimonials-carousel" style={{ display: 'flex', justifyContent: 'space-between' }}>
+
+          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
+            <div className="testimonial-item">
+              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
+              <h3>AATILA Mustapha</h3>
+              <h4>Master en Informatique</h4>
+              <p>
+                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                Détection, classification et prédiction du Kératocône.
+                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
+            <div className="testimonial-item">
+              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+              <p>
+                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
+            <div className="testimonial-item">
+              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="contact" className="contact">
+          <div className="container">
+            <div className="section-title">
+              <h2>Contact</h2>
+              <div className="address">
+                <i className="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>{address}</p>
+              </div>
+              <div className="phone">
+                <i className="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>{phoneNumber}</p>
+              </div>
+            </div>
+          </div>
+          <div>
+        <iframe style={{ border: '0', width: '100%', height: '350px' }} src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=ensa%20el%20jadida+(LTI%20LAB)&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe>
+    </div>
+        </section>
+
+
+      </main>
+        {/* ======= Footer ======= */}
+        <Footer></Footer>
+
     </div>
   );
 };

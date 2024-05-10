@@ -1,13 +1,13 @@
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    background-image: url('./images/addmemberformbg.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; /* Minimum height of the viewport */
-  }
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Minimum height of the viewport */
+}
   
   
   nav {
