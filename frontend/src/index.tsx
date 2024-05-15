@@ -13,6 +13,8 @@ import Pubform from './Components/pubform';
 import Pubpage from './Components/pubpage';
 import AddMemberForm from './Components/Addmembersform';
 import AdminPanel from './Components/adminpage';
+import LoginForm from './Components/loginform';
+import SignupForm from './Components/signupform';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPanel/>,
+  },
+  {
+    path: "/loginform",
+    element: <LoginForm/>,
+  },
+  {
+    path: "/signupform",
+    element: <SignupForm/>,
   },
 ]);
 

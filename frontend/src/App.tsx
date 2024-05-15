@@ -59,6 +59,7 @@ const HomePage: React.FC = () => {
           <li><a href="#">Projet de recherche</a></li>
           <li><a href="#">Membre</a></li>
           <li><Link to="/pub">Publication</Link></li>
+          <li><Link to="/loginform">Admin Panel</Link></li>
           {/* Add more list items for other sections */}
         </ul>
       </nav>
@@ -66,7 +67,7 @@ const HomePage: React.FC = () => {
       <section id="hero" className="d-flex align-items-center">
         <div className="container">
           <h1>{labName}</h1>
-          <h2>Laboratoire de Technologies de l'Information (LTI)</h2>
+          <h2>Laboratoire de Technologies de l'Information {labName}</h2>
           <a href="#about" className="btn-get-started scrollto">Get Started</a>
         </div>
       </section>
