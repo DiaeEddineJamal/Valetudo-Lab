@@ -18,8 +18,8 @@ import Footer from './Components/footer';
 // emplacez Ri par le préfixe de votre bibliothèque d'icônes
 
 const logoStyle = {
-  width: '190px',
-  height: '50px'
+  width: '130px',
+  height: '38px'
 };
 
 const HomePage: React.FC = () => {
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
           <img src={logo} alt="logo" style={logoStyle} />
         </div>
         <ul id="MyUL">
-          <li><a href="#">Acceuil</a></li>
+          <li><a href="/">Acceuil</a></li>
           <li><a href="#motdedirecteur">A propos</a></li>
           <li><a href="#">Projet de recherche</a></li>
           <li><a href="#">Membre</a></li>

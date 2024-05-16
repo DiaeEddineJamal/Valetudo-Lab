@@ -293,7 +293,7 @@ nav ul li a {
   }
 }
 #section-hero {
-  background-image: url('./assets/img/about.jpg');
+  background-image: url('./Components/images/mainbg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -301,7 +301,7 @@ nav ul li a {
 /* Ajoutez ces styles dans votre fichier CSS */
 
 #hero {
-  background: url('./assets/img/about.jpg') top center;
+  background: url('./Components/images/mainbg.jpg') top center;
   background-size: cover;
   height: 100vh;
 }
@@ -340,11 +340,6 @@ nav ul li a {
   color: #fff;
 }
 
-/* Ajoutez les autres styles nécessaires pour le reste du contenu */
-/* App.css */
-/* App.css */
-
-/* Modifier la position des cartes */
 #main {
   margin-top: -300px; /* Déplacer le contenu vers le haut */
 }
@@ -366,7 +361,7 @@ nav ul li a {
 
 /* Hero section */
 #hero {
-  background: url('./assets/img/about.jpg') top center;
+  background: url('./Components/images/mainbg.jpg') top center;
   background-size: cover;
   height: 100vh;
 }
