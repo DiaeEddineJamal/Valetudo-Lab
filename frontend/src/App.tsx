@@ -27,6 +27,8 @@ const HomePage: React.FC = () => {
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [labName, setLabName] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
 
   useEffect(() => {
     fetchData();
@@ -39,7 +41,9 @@ const HomePage: React.FC = () => {
       if (data && data.length > 0) {
         setAddress(data[0].address);
         setPhoneNumber(data[0].phoneNumber);
-        setLabName(data[0].name); // Assuming the key for laboratory name is "name"
+        setLabName(data[0].name);
+        setLatitude(data.latitude);
+        setLongitude(data.longitude);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -292,7 +296,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div>
-        <iframe style={{ border: '0', width: '100%', height: '350px' }} src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=ensa%20el%20jadida+(LTI%20LAB)&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe>
+          <iframe style={{ border: '0', width: '100%', height: '350px' }} src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=31.718790,-8.096950&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe>
     </div>
         </section>
 

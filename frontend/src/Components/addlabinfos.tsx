@@ -5,21 +5,25 @@ interface LaboratoryDTO {
     name: string;
     phoneNumber: string;
     address: string;
+    longitude: number;
+    latitude: number;
 }
 
 const AddLaboratoryForm: React.FC = () => {
     const [formData, setFormData] = useState<LaboratoryDTO>({
         name: '',
         phoneNumber: '',
-        address: ''
+        address: '',
+        longitude: 0,
+        latitude: 0,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: name === 'longitude' || name === 'latitude' ? Number(value) : value,
+        }));
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +35,9 @@ const AddLaboratoryForm: React.FC = () => {
             setFormData({
                 name: '',
                 phoneNumber: '',
-                address: ''
+                address: '',
+                longitude: 0,
+                latitude: 0,
             });
         } catch (error) {
             console.error('Error:', error);
@@ -54,6 +60,14 @@ const AddLaboratoryForm: React.FC = () => {
                 <div>
                     <label htmlFor="address">Address:</label>
                     <input type="text" id="address" name="address" value={formData.address} onChange={handleChange} />
+                </div>
+                <div>
+                    <label htmlFor="longitude">Longitude:</label>
+                    <input type="number" step="0.000001" id="longitude" name="longitude" value={formData.longitude} onChange={handleChange} />
+                </div>
+                <div>
+                    <label htmlFor="latitude">Latitude:</label>
+                    <input type="number" step="0.000001" id="latitude" name="latitude" value={formData.latitude} onChange={handleChange} />
                 </div>
                 <button type="submit">Submit</button>
             </form>
