@@ -59,9 +59,9 @@ const HomePage: React.FC = () => {
         </div>
         <ul id="MyUL">
           <li><a href="/">Acceuil</a></li>
-          <li><a href="#motdedirecteur">A propos</a></li>
+          <li><a href="#about">A propos</a></li>
           <li><a href="#">Projet de recherche</a></li>
-          <li><a href="#">Membre</a></li>
+          <li><a href="#chercheurs">Membre</a></li>
           <li><Link to="/pub">Publication</Link></li>
           <li><Link to="/loginform">Admin Panel</Link></li>
           {/* Add more list items for other sections */}
@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
                 <div className="content">
                   <h3>Présentation</h3>
                   <p>
-                    Le laboratoire de Technologies de l'Information (LTI) est une structure de recherche domiciliée au département TRI et rattachée à l’École Nationale des Sciences Appliquées d’El Jadida (ENSAJ) de l’université Chouaib Doukkali. Le LTI a pour objectif d’inciter, de faciliter et de coordonner les activités <span id="suite">de recherche scientifique de ses membres, à titre individuel, mais surtout dans le cadre de projets collectifs à dimension nationale ou internationale. Il contribue à la production, à la diffusion et à la valorisation des travaux de recherche autour des technologies de l’information, ainsi qu’à la formation doctorale en Télécommunication, Réseaux et Informatique appliquée aux Techniques de Communications  et en sciences de l’information.</span>
+                    Le laboratoire de Technologies de l'Information {labName} est une structure de recherche domiciliée au département TRI et rattachée à l’École Nationale des Sciences Appliquées d’El Jadida (ENSAJ) de l’université Chouaib Doukkali. Le {labName} a pour objectif d’inciter, de faciliter et de coordonner les activités <span id="suite">de recherche scientifique de ses membres, à titre individuel, mais surtout dans le cadre de projets collectifs à dimension nationale ou internationale. Il contribue à la production, à la diffusion et à la valorisation des travaux de recherche autour des technologies de l’information, ainsi qu’à la formation doctorale en Télécommunication, Réseaux et Informatique appliquée aux Techniques de Communications  et en sciences de l’information.</span>
                   </p>
                   <div className="text-center">
                     <a id="read" href="javascript:{}" className="more-btn">Lire plus <i className="bx bx-chevron-right"></i></a>
@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
             <div className="count-box">
               <FaUserMd className="icon" /> {/* Utilisez l'icône FaUserMd */}
               <span data-toggle="counter-up">18</span>
-              <p>Chercheurs</p>
+              <p >Chercheurs</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 mt-5 mt-md-0">
