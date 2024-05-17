@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBCheckbox, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './signupform.css';
 interface SignupFormProps {
   // Add any additional props you might need here
 }
@@ -40,33 +42,35 @@ function SignupForm(props: SignupFormProps) {
   };
 
   return (
-    <div className="App-header">
-      <h1 className='page-title'>Fitness Fitness ‍♀️</h1>
-      <div className="content-container">
-        <div className="form-container">
-          <h2 className="signup-title">Sign Up</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Email:</label>
-              <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className="form-group">
-              <label>Username:</label>
-              <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)} />
-            </div>
-            <div className="form-group">
-              <label>Password:</label>
-              <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <button type="submit">Sign Up</button>
-          </form>
-          <p>
-            Already have an account?{' '}
-            <Link to="/login">Log in</Link>
-          </p>
-        </div>
-      </div>
-    </div>
+    <MDBContainer fluid className='p-4 background-radial-gradient overflow-hidden'>
+      <MDBRow className="justify-content-center">
+        <MDBCol md='6'>
+          <MDBCard className='my-5 bg-glass'>
+            <MDBCardBody className='p-5'>
+              <h2 className="text-center mb-5">Sign Up</h2>
+              <form onSubmit={handleSubmit}>
+                <MDBRow>
+                  <MDBCol size="6">
+                    <MDBInput label='Email' id='email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                  </MDBCol>
+                  <MDBCol size="6">
+                    <MDBInput label='Username' id='username' type='text' value={username} onChange={(e) => setUsername(e.target.value)} />
+                  </MDBCol>
+                </MDBRow>
+                <MDBInput label='Password' id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                <div className='d-flex justify-content-center mb-4'>
+                  <MDBCheckbox name='subscribe' value='' id='subscribe' label='Subscribe to our newsletter' />
+                </div>
+                <MDBBtn className='w-100 mb-4' type='submit'>Sign Up</MDBBtn>
+              </form>
+              <div className="text-center">
+                <p>Already have an account? <Link to="/loginform">Log in</Link></p>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 }
 
