@@ -7,25 +7,34 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use useNavigate for navigation
 
+  const ADMIN_USERNAME = 'admin';
+  const ADMIN_PASSWORD = 'adminpassword'; // Replace with the actual admin password
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:8080/login', {
-        username,
-        password,
-      });
+    // Check if the submitted username and password match the admin credentials
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+      try {
+        const response = await axios.post('http://localhost:8080/login', {
+          username,
+          password,
+        });
 
-      if (response.status === 200) {
-        console.log('Login successful');
-        navigate('/admin'); // Redirect to main page
-      } else {
-        console.error('Login failed');
-        // Handle login failure appropriately, e.g., display an error message
+        if (response.status === 200) {
+          console.log('Login successful');
+          navigate('/admin'); // Redirect to main page
+        } else {
+          console.error('Login failed');
+          // Handle login failure appropriately, e.g., display an error message
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle network errors or other issues
       }
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle network errors or other issues
+    } else {
+      console.error('Invalid username or password');
+      // Display an error message to the user
     }
   };
 
