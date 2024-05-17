@@ -2,43 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { RiTwitterFill, RiFacebookFill, RiInstagramFill, RiLinkedinBoxFill } from 'react-icons/ri';
 
 const Footer = () => {
-  const [laboratories, setLaboratories] = useState<{ name: string; address: string; phoneNumber: string; }[]>([]);
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [labName, setLabName] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
 
   useEffect(() => {
-    fetchLaboratories();
+    fetchData();
   }, []);
 
-  const fetchLaboratories = async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/laboratories');
       const data = await response.json();
-      setLaboratories(data);
-    } catch (error) {
-      console.error('Error fetching laboratories:', error);
-    }
-  };
-
-  const addLaboratory = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/laboratories/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: 'New Laboratory',
-          address: 'New Address',
-          phoneNumber: 'New Phone Number',
-        }),
-      });
-      if (response.ok) {
-        // If the laboratory was added successfully, fetch the latest data
-        fetchLaboratories();
-      } else {
-        console.error('Failed to add new laboratory:', response.statusText);
+      if (data && data.length > 0) {
+        setAddress(data[0].address);
+        setPhoneNumber(data[0].phoneNumber);
+        setLabName(data[0].name);
+        setLatitude(data[0].latitude);
+        setLongitude(data[0].longitude);
       }
     } catch (error) {
-      console.error('Error adding new laboratory:', error);
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -49,18 +35,16 @@ const Footer = () => {
           <div className="row">
 
             <div className="col-lg-3 col-md-6 footer-contact">
-              {/* Replace the hardcoded <h3> with the fetched laboratory name */}
-              {laboratories.length > 0 && (
-                <h3>{laboratories[0].name}</h3>
+              {/* Display the fetched laboratory name if available */}
+              {labName && (
+                <h3>{labName}</h3>
               )}
               {/* Display the latest laboratory information */}
-              {laboratories.length > 0 && (
-                <p>
-                  <strong>Address:</strong> {laboratories[0].address} <br />
-                  <strong>Phone:</strong> {laboratories[0].phoneNumber} <br />
-                  <strong>Email:</strong> hassan.ouahmane@yahoo.fr<br />
-                </p>
-              )}
+              <p>
+                <strong>Address:</strong> {address} <br />
+                <strong>Phone:</strong> {phoneNumber} <br />
+                <strong>Email:</strong> hassan.ouahmane@yahoo.fr<br />
+              </p>
             </div>
 
             <div className="col-lg-2 col-md-6 footer-links">
@@ -99,7 +83,7 @@ const Footer = () => {
 
         <div className="mr-md-auto text-center text-md-left">
           <div className="copyright">
-            &copy; Copyright <strong><span>LTI lab</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>{labName}</span></strong>. All Rights Reserved.
           </div>
           <div className="credits">
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
