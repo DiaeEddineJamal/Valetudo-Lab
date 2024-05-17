@@ -83,7 +83,7 @@ const Footer = () => {
 
         <div className="mr-md-auto text-center text-md-left">
           <div className="copyright">
-            &copy; Copyright <strong><span>{labName}</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>{labName}</span></strong>. All Rights Reserved.
           </div>
           <div className="credits">
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
