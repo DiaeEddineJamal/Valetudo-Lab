@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const EquipesSection: React.FC = () => {
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [labName, setLabName] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/laboratories');
+      const data = await response.json();
+      if (data && data.length > 0) {
+        setAddress(data[0].address);
+        setPhoneNumber(data[0].phoneNumber);
+        setLabName(data[0].name);
+        setLatitude(data.latitude);
+        setLongitude(data.longitude);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   return (
     <section id="equipes" className="equipes">
       <div className="container">
         <div className="section-title">
           <h2>Equipes</h2>
-          <p>L’équipe est la structure de base d’animation scientifique et de gestion du Laboratoire LTI. Elle comprend des groupes thématiques de recherche et des groupes techniques d’accompagnement à la recherche. Le Laboratoire LTI est composé de trois équipes de recherche :</p>
+          <p>L’équipe est la structure de base d’animation scientifique et de gestion du Laboratoire {labName}. Elle comprend des groupes thématiques de recherche et des groupes techniques d’accompagnement à la recherche. Le Laboratoire {labName} est composé de trois équipes de recherche :</p>
         </div>
         <div className="row">
           <div className="col-lg-3">
@@ -29,7 +54,7 @@ const EquipesSection: React.FC = () => {
                   <div className="col-lg-8 details order-2 order-lg-1">
                     <h3>RMS : Réseaux, Mobiquité et Sécurité</h3>
                     <p className="font-italic">Equipement et Logistique</p>
-                    <p>Afin de mettre en oeuvre ses expériences scientifiques (hardware et software) dans les domaines des technologies de l'information, l'équipe RMS du laboratoire LTI est dotée de deux Laboratoires d’expérimentation en Réseaux/Informatique équipés de :
+                    <p>Afin de mettre en oeuvre ses expériences scientifiques (hardware et software) dans les domaines des technologies de l'information, l'équipe RMS du laboratoire {labName} est dotée de deux Laboratoires d’expérimentation en Réseaux/Informatique équipés de :
                       <br/> - Machines Informatiques (PCs, Portables),
                       <br/> - Switchs de 8 ports et 5 Switchs de 24 ports administrables (multi-modèles),
                       <br/> - Câblage réseaux et périphérique associées
@@ -77,7 +102,7 @@ const EquipesSection: React.FC = () => {
                   <div className="col-lg-8 details order-2 order-lg-1">
                     <h3>THS : Télécommunications, Hyperfréquence et Systèmes embarqués</h3>
                     <p className="font-italic">Equipement et Logistique</p>
-                    <p>Afin de mettre en oeuvre ses expériences scientifiques (hardware et software) dans les domaines des technologies de l'information, l'équipe THS du laboratoire LTI est dotée de deux Laboratoires d’expérimentation en Télécommunications/Hyperfréquence équipés de :
+                    <p>Afin de mettre en oeuvre ses expériences scientifiques (hardware et software) dans les domaines des technologies de l'information, l'équipe THS du laboratoire {labName} est dotée de deux Laboratoires d’expérimentation en Télécommunications/Hyperfréquence équipés de :
                       <br/>- Divers Maquettes de techniques de transmission analogiques,
                       <br/> - Divers Maquettes de techniques de transmission numériques,
                       <br/> - Maquettes pour la transmission optique

@@ -32,7 +32,7 @@ nav {
   backdrop-filter: blur(8px) brightness(1.2);
   -webkit-backdrop-filter: blur(8px) brightness(1.2);
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
-  color: rgb(26, 123, 171);
+  color: rgb(189, 186, 186);
   font-size: medium;
   z-index: 9999; /* Ensure navbar is on top of all elements */
 }
