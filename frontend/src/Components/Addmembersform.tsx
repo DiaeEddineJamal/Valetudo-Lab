@@ -28,7 +28,7 @@ const MemberForm: React.FC = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get<Team[]>('http://localhost:8080/api/teams');
+        const response = await axios.get<Team[]>('http://localhost:8080/api/teams/teams');
         setTeams(response.data);
       } catch (error) {
         console.error('Error fetching teams:', error);
