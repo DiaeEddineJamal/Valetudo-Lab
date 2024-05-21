@@ -3,6 +3,7 @@ import AddMemberForm from './Addmembersform';
 import './adminpanel.css'
 import AddPublicationForm from './addpubform';
 import AddLaboratoryForm from './addlabinfos';
+import TeamForm from './addteamsform';
 
 const AdminPanel: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('');
@@ -18,6 +19,7 @@ const AdminPanel: React.FC = () => {
           <li><a href="#add-member" onClick={() => handleNavigation('add-member')}>Add Member</a></li>
           <li><a href="#add-publication" onClick={() => handleNavigation('add-publication')}>Add Publication</a></li>
           <li><a href="#add-laboratory-infos" onClick={() => handleNavigation('add-laboratory-infos')}>Add Laboratory Infos</a></li>
+          <li><a href="#add-teams-infos" onClick={() => handleNavigation('add-teams-infos')}>Add teams infos</a></li>
         </ul>
       </nav>
       {selectedOption === 'add-member' && (
@@ -36,10 +38,14 @@ const AdminPanel: React.FC = () => {
       )}
       {selectedOption === 'add-laboratory-infos' && (
         <div id="add-laboratory-infos">
-          {/* Add Laboratory Infos Form Component */}
-         
-          {/* Your form component for adding laboratory information goes here */}
+      
           <AddLaboratoryForm></AddLaboratoryForm>
+        </div>
+      )}
+       {selectedOption === 'add-teams-infos' && (
+        <div id="add-teams-infos">
+      
+          <TeamForm></TeamForm>
         </div>
       )}
     </div>

@@ -1,0 +1,68 @@
+/* Import the necessary CSS files */
+
+
+.team-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 40px;
+}
+
+.team-form .p-float-label {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.team-form .p-float-label > label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.team-form .p-float-label > .p-inputtext,
+.team-form .p-float-label > .p-autocomplete {
+  width: 100%;
+  padding: 1rem 0.75rem 0.5rem;
+  border-color: #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.team-form .p-float-label > .p-inputtext:focus,
+.team-form .p-float-label > .p-autocomplete:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.team-form .p-float-label > .p-inputtext:not(:placeholder-shown) + label,
+.team-form .p-float-label > .p-autocomplete:not(:placeholder-shown) + label {
+  top: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.team-form button[type='submit'] {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.team-form button[type='submit']:hover {
+  background-color: #0056b3;
+}
