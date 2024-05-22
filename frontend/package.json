@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.30",
     "@types/react-icons": "^3.0.0"
   }
 }

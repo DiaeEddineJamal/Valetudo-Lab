@@ -8,6 +8,7 @@ interface MemberFormData {
   isDoctorant: boolean;
   teamId: number | null;
   impulse: string;
+  image: File | null;
 }
 
 interface Team {
@@ -22,6 +23,7 @@ const MemberForm: React.FC = () => {
     isDoctorant: false,
     teamId: null,
     impulse: '',
+    image: null, 
   });
   const [teams, setTeams] = useState<Team[]>([]);
 
@@ -36,7 +38,15 @@ const MemberForm: React.FC = () => {
     };
     fetchTeams();
   }, []);
-
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        image: file,
+      }));
+    }
+  };
   const handleInputChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -56,20 +66,21 @@ const MemberForm: React.FC = () => {
     }
     console.log(`${name}: ${value}`);
   };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log('Form data:', formData);
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('keyword', formData.keyword);
+    formDataToSend.append('isDoctorant', String(formData.isDoctorant));
+    formDataToSend.append('teamId', String(formData.teamId || ''));
+    formDataToSend.append('impulse', formData.impulse);
+    if (formData.image) {
+      formDataToSend.append('image', formData.image);
+    }
 
     try {
-      await axios.post('http://localhost:8080/api/members', {
-        name: formData.name,
-        keyword: formData.keyword,
-        isDoctorant: formData.isDoctorant,
-        teamId: formData.teamId,
-        impulse: formData.impulse,
-      });
+      await axios.post('http://localhost:8080/api/members', formDataToSend);
       alert('Member added successfully!');
       // Reset the form data
       setFormData({
@@ -78,11 +89,13 @@ const MemberForm: React.FC = () => {
         isDoctorant: false,
         teamId: null,
         impulse: '',
+        image: null,
       });
     } catch (error) {
       console.error('Error updating member:', error);
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="member-form">
@@ -144,6 +157,17 @@ const MemberForm: React.FC = () => {
           onChange={handleInputChange}
           required
         ></textarea>
+      </div>
+       {/* Image upload field */}
+       <div className="form-group">
+        <label htmlFor="image">Image:</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          accept="image/*"
+          onChange={handleImageChange}
+        />
       </div>
       <button type="submit">Save</button>
     </form>
