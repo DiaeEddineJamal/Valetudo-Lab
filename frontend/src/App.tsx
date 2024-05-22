@@ -10,11 +10,12 @@ import { Link } from 'react-router-dom';
 import ouahmanePic from './assets/img/chercheurs/Ouahmane.png';
 import { FaUserMd, FaBed, FaFlask, FaMedal } from 'react-icons/fa';
 import lol from './assets/img/chercheurs/Aatila_Mustapha2.jpg';
-import { RiTwitterFill, RiFacebookFill, RiInstagramFill, RiLinkedinBoxFill } from 'react-icons/ri'; 
+
 import logo from './Components/images/logo.png' 
 import ProjetsSection from './Components/projets';
 import EquipesSection from './Components/equipesection';
 import Footer from './Components/footer';
+import ChercheursSection from './Components/researchers';
 // emplacez Ri par le préfixe de votre bibliothèque d'icônes
 
 const logoStyle = {
@@ -180,52 +181,7 @@ const HomePage: React.FC = () => {
     </section>
    <ProjetsSection></ProjetsSection>
    <EquipesSection></EquipesSection>
-    <section id="chercheurs" className="chercheurs">
-  <div className="container">
-
-    <div className="section-title">
-      <h2>Chercheurs</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-    </div>
-
-    <div className="row">
-      <div className="col-lg-6">
-        <div className="member d-flex align-items-start">
-          <div><img className="sp_img" src={lol} alt="Prof. Hassan Ouahmane" /></div>
-          <div className="member-info">
-            <h4>Prof. Hassan Ouahmane</h4>
-            <span>Directeur du laboratoire, Chef d'équipe</span>
-            <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-            <div className="social">
-            <a href="#"><RiTwitterFill /></a>
-<a href="#"><RiFacebookFill /></a>
-<a href="#"><RiInstagramFill /></a>
-<a href="#"><RiLinkedinBoxFill /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-lg-6">
-        <div className="member d-flex align-items-start">
-          <div><img className="sp_img" src={lol} alt="Prof. Mohamed Lachgar" /></div>
-          <div className="member-info">
-            <h4>Prof. Mohamed Lachgar</h4>
-            <span>Membre</span>
-            <p>Intelligence Artificielle; Ingénierie Dirigée par les Modèles; Programmation web & mobile.</p>
-            <div className="social">
-            <a href="#"><RiTwitterFill /></a>
-<a href="#"><RiFacebookFill /></a>
-<a href="#"><RiInstagramFill /></a>
-<a href="#"><RiLinkedinBoxFill /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+    <ChercheursSection></ChercheursSection>
    
       
     <section id="testimonials" className="testimonials" style={{ backgroundColor: 'slategrey' }}>

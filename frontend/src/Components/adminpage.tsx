@@ -10,6 +10,7 @@ import './adminpanel.css';
 import { Link } from 'react-router-dom';
 import logo from './images/logo.png'
 
+
 const logoStyle = {
   width: '130px',
   height: '38px'
@@ -47,13 +48,16 @@ const AdminPanel: React.FC = () => {
       </nav>
       </div>
       <CustomStepper ref={stepperRef} style={{ flexBasis: '100%' }} activeIndex={currentStep} onActiveIndexChange={(e) => handleStepChange(e.value)}>
-        <StepperPanel header="Add Member">
+        <StepperPanel header="Add Researcher">
           <AddMemberForm />
           <div className="flex pt-4 justify-content-between">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" onClick={() => stepperRef.current?.prevCallback()} disabled={currentStep === 0} />
             <Button label="Next" icon="pi pi-arrow-right" iconPos="right" onClick={() => stepperRef.current?.nextCallback()} />
           </div>
         </StepperPanel>
+       
+
+
         <StepperPanel header="Add Publication">
           <AddPublicationForm />
           <div className="flex pt-4 justify-content-between">
