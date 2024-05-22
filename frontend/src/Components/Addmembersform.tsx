@@ -122,16 +122,7 @@ const MemberForm: React.FC = () => {
           required
         />
       </div>
-      <div className="form-group checkbox-group">
-        <input
-          type="checkbox"
-          id="isDoctorant"
-          name="isDoctorant"
-          checked={formData.isDoctorant}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="isDoctorant">Doctorant</label>
-      </div>
+      
       <div className="form-group">
         <label htmlFor="teamId">Team:</label>
         <select
