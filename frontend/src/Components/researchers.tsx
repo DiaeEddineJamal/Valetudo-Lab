@@ -3,11 +3,12 @@ import { RiTwitterFill, RiFacebookFill, RiInstagramFill, RiLinkedinBoxFill } fro
 import axios from 'axios';
 
 interface Chercheur {
+  id: number;
   name: string;
-  role: string;
+  keyword: string;
   description: string;
   socialLinks: { twitter?: string; facebook?: string; instagram?: string; linkedin?: string; };
-  imageUrl: string;
+  image: string; // Assuming this is where the base64 encoded image data is stored
 }
 
 const fetchChercheurs = async (): Promise<Chercheur[]> => {
@@ -43,14 +44,13 @@ const ChercheursSection: React.FC = () => {
           {chercheurs.map((chercheur, index) => (
             <div className="col-lg-6" key={index}>
               <div className="member d-flex align-items-start">
-                <div><img className="sp_img" src={chercheur.imageUrl} alt={chercheur.name} /></div>
+                <div><img className="sp_img" src={`data:image/jpeg;base64,${chercheur.image}`} alt={chercheur.name} /></div>
                 <div className="member-info">
                   <h4>{chercheur.name}</h4>
-                  <span>{chercheur.role}</span>
+                  <span>{chercheur.keyword}</span>
                   <p>{chercheur.description}</p>
                   <div className="social">
-                  
-                    
+                    {/* Add social links here */}
                   </div>
                 </div>
               </div>
