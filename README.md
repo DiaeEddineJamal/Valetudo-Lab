@@ -2,6 +2,23 @@
 
 Ce projet est une application web pour la gestion d'un laboratoire scientifique, développée avec React.js et TypeScript pour le front-end, et Spring Boot avec Maven pour le back-end. L'application permet à un administrateur de gérer les membres, les informations du laboratoire, les publications et les équipes via un panneau d'administration. Toutes les informations sont affichées dynamiquement sur la page principale après avoir été récupérées de la base de données.
 
+## Table des Matières
+
+- [Aperçu](#aperçu)
+- [Fonctionnalités](#fonctionnalités)
+- [Architecture Logicielle](#architecture-logicielle)
+- [Prérequis](#prérequis)
+- [Installation et Exécution](#installation-et-exécution)
+  - [Front-end (React.js + TypeScript)](#front-end-reactjs--typescript)
+  - [Back-end (Spring Boot + Maven)](#back-end-spring-boot--maven)
+- [Utilisation](#utilisation)
+- [Auteurs](#auteurs)
+- [License](#license)
+
+## Aperçu
+
+Ce projet a été conçu pour simplifier la gestion d'un laboratoire scientifique. En utilisant une architecture moderne, l'application sépare le front-end et le back-end, permettant une maintenance et une scalabilité plus faciles. Les administrateurs peuvent ajouter et gérer des membres, des publications, des équipes, et des informations sur le laboratoire, qui seront ensuite affichées dynamiquement sur le site web principal.
+
 ## Fonctionnalités
 
 - Connexion administrateur
@@ -10,6 +27,25 @@ Ce projet est une application web pour la gestion d'un laboratoire scientifique,
 - Gestion des publications
 - Gestion des équipes
 - Affichage dynamique des informations sur la page principale
+
+## Architecture Logicielle
+
+L'architecture logicielle de cette application est basée sur le modèle MVC (Model-View-Controller) pour le back-end et utilise React pour le front-end. Voici un diagramme technique illustrant les composants principaux et leurs interactions :
+
+![Diagramme Technique]
+
+
+
+<a href="https://ibb.co/z2LWfgQ"><img src="https://i.ibb.co/6tpcsSr/1-MWnj-Dit-ZVy-RYFQ81i8-Fk-BQ.jpg" alt="1-MWnj-Dit-ZVy-RYFQ81i8-Fk-BQ" border="0"></a>
+
+1. **Base de données** : MySQL est utilisé pour stocker toutes les données de l'application.
+2. **Spring Boot** : Fournit le cadre pour le back-end, gère les requêtes HTTP, et intègre les composants.
+3. **Spring Data JPA** : Gère l'accès aux données et les opérations CRUD.
+4. **Service Layer** : Contient la logique métier de l'application.
+5. **Service Interface** : Définit les contrats pour les services.
+6. **Entity Model** : Comprend les objets POJO qui représentent les entités de la base de données.
+7. **REST API Controller** : Gère les requêtes HTTP des clients et renvoie les réponses appropriées.
+8. **Front-end** : Développé avec React.js et TypeScript, communique avec le back-end via des appels API REST.
 
 ## Prérequis
 
