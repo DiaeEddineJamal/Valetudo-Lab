@@ -5,6 +5,7 @@ import com.labbackend.labbackendx.model.team.Team;
 import com.labbackend.labbackendx.repository.MemberRepository;
 import com.labbackend.labbackendx.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -77,6 +78,17 @@ public class MemberController {
             return ResponseEntity.ok()
                     .contentType(MediaType.IMAGE_JPEG) // or MediaType.IMAGE_PNG based on your image type
                     .body(memberOptional.get().getImage());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMember(@PathVariable Long id) {
+        Optional<Member> memberOptional = memberRepository.findById(id);
+        if (memberOptional.isPresent()) {
+            memberRepository.delete(memberOptional.get());
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }

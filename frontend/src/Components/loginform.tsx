@@ -35,7 +35,7 @@ function LoginForm() {
 
         if (response.status === 200) {
           console.log('Connexion réussie');
-          navigate('/admin'); // Redirection vers la page principale
+          navigate('/choose'); // Redirection vers la page principale
         } else {
           console.error('Échec de la connexion');
           // Gérez l'échec de la connexion de manière appropriée, par exemple affichez un message d'erreur
