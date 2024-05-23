@@ -25,10 +25,10 @@ const TeamManager: React.FC = () => {
 
   const deleteTeam = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:8080/api/teams/teams/${id}/delete`);
+      await axios.delete(`http://localhost:8080/api/teams/${id}`);
       setTeams(teams.filter((team) => team.id !== id));
     } catch (error) {
-      console.error('Error deleting team:', error);
+      console.error('Error deleting teams:', error);
     }
   };
 
