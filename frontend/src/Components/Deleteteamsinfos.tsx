@@ -28,7 +28,7 @@ const TeamManager: React.FC = () => {
       await axios.delete(`http://localhost:8080/api/teams/${id}`);
       setTeams(teams.filter((team) => team.id !== id));
     } catch (error) {
-      console.error('Error deleting team:', error);
+      console.error('Error deleting teams:', error);
     }
   };
 
