@@ -15,6 +15,11 @@ import AddMemberForm from './Components/Addmembersform';
 import AdminPanel from './Components/adminpage';
 import LoginForm from './Components/loginform';
 import SignupForm from './Components/signupform';
+import Choose from './Components/choose';
+import Deletemem from './Components/Deletemem';
+import PublicationManager from './Components/Deletepublications';
+import AdminPaneldelete from './Components/adminpagedelete';
+
 
 const router = createBrowserRouter([
   {
@@ -45,6 +50,22 @@ const router = createBrowserRouter([
     path: "/signupform",
     element: <SignupForm/>,
   },
+  {
+    path: "/choose",
+    element: <Choose/>,
+  },
+  {
+    path: "/deletemembers",
+    element: <Deletemem/>,
+  },
+  {
+    path: "/admindelete",
+    element: <AdminPaneldelete/>,
+  },
+  
+  
+  
+  
 ]);
 
 const root = ReactDOM.createRoot(

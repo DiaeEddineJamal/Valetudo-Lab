@@ -81,4 +81,19 @@ public class PublicationController {
         List<Publication> publications = publicationRepository.findAll();
         return ResponseEntity.ok(publications);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePublication(@PathVariable("id") Long id) {
+        Publication publication = publicationRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Publication not found with id: " + id));
+
+        publicationRepository.delete(publication);
+        return ResponseEntity.noContent().build();
+    }
+
+    private static class ResourceNotFoundException extends RuntimeException {
+        public ResourceNotFoundException(String message) {
+            super(message);
+        }
+    }
 }
