@@ -118,7 +118,16 @@ L'architecture logicielle de cette application est basée sur le modèle MVC (Mo
 ## Utilisation
 
 1. Ouvrir votre navigateur et accéder à `http://localhost:3000` pour le front-end.
+   
+<a href="https://ibb.co/GMNXypq"><img src="https://i.ibb.co/X5M91Lq/Screenshot-2024-05-24-114714.png" alt="Screenshot-2024-05-24-114714" border="0"></a>
+   
 2. Accéder à l'interface d'administration à `http://localhost:3000/admin` pour ajouter des membres, des informations sur le laboratoire, des publications et des équipes.
+
+   <a href="https://ibb.co/s9gvq7S"><img src="https://i.ibb.co/m5RC4ps/Screenshot-2024-05-24-120526.png" alt="Screenshot-2024-05-24-120526" border="0"></a>
+
+   <a href="https://ibb.co/bmR5cmw"><img src="https://i.ibb.co/W5pvm58/Screenshot-2024-05-24-120729.png" alt="Screenshot-2024-05-24-120729" border="0"></a>
+
+   
 3. Les informations ajoutées via le panneau d'administration seront affichées dynamiquement sur la page principale.
 
 ## Auteurs
