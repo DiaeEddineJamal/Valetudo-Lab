@@ -838,7 +838,7 @@ nav ul li a {
   border-radius: 50%; /* Bord arrondi pour faire une image ronde */
   object-fit: cover; /* Redimensionner l'image pour qu'elle couvre la zone */
   transition: 0.3s; /* Transition */
-  margin-top: 20px;
+  margin-top: 7px;
 }
 
 .chercheurs .member:hover img.sp_img {
@@ -852,7 +852,7 @@ nav ul li a {
 .chercheurs .member-info h4 {
   font-size: 20px; /* Taille du nom */
   font-weight: 700; /* Graisse du nom */
-  color: #333; /* Couleur du nom */
+  color: #4c729c; /* Couleur du nom */
   margin-bottom: 15px; /* Espacement en bas */
 }
 
@@ -1085,3 +1085,25 @@ nav ul li a {
 }
 
 
+.contact-details {
+  display: flex;
+}
+
+.contact-item {
+  flex: 1;
+  margin: 10px;
+}
+
+.contact-item:hover {
+  background-color: #ffffff; /* Changer la couleur de fond lors du survol */
+  border: 1px solid #000000; /* Ajouter une bordure noire */
+}
+
+.contact-icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.contact-info {
+  display: inline-block;
+}

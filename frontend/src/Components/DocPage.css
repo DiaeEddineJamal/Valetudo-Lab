@@ -1,0 +1,51 @@
+.doctorants-page {
+  padding: 20px;
+}
+
+.doctorants-page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.doctorants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.doctorant-item {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex; /* Utilisation de flexbox */
+  align-items: flex-start; /* Alignement vertical au début */
+  width: calc(50% - 10px); /* Pour deux colonnes, moins la marge */
+  max-width: 400px; /* Largeur maximale pour chaque élément */
+}
+
+.doctorant-item img {
+  width: 20%; /* Ajustez la taille de l'image selon vos besoins */
+  max-width: 100px; /* Définissez une largeur maximale pour l'image */
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.doctorant-item h3,
+.doctorant-item p {
+  margin-top: 0; /* Supprime les marges par défaut */
+  margin-bottom: 5px;
+}
+
+.doctorant-item p.supervisor {
+  color: #405f82;  /* Changement de la couleur de l'écriture */
+}
+.doctorants-page {
+  padding: 20px;
+  text-align: center; /* Centrer le texte à l'intérieur de la div .doctorants-page */
+}
+
+.doctorants-page h2 {
+  font-size: 36px; /* Taille du titre */
+  font-weight: 700; /* Graisse du titre */
+  color: white; /* Couleur du titre */
+}

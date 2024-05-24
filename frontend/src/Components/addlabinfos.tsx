@@ -47,8 +47,9 @@ const AddLaboratoryForm: React.FC = () => {
 
     return (
         <div>
-            <h2>Add Laboratory</h2>
+            
             <form onSubmit={handleSubmit}>
+            <h2>Add Laboratory</h2>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
@@ -69,7 +70,12 @@ const AddLaboratoryForm: React.FC = () => {
                     <label htmlFor="latitude">Latitude:</label>
                     <input type="number" step="0.000001" id="latitude" name="latitude" value={formData.latitude} onChange={handleChange} />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit"  style={{
+          
+          marginTop: '30px', // Ajuster pour abaisser le bouton
+          
+          marginLeft: '130px', // Centrer le bouton horizontalement
+        }}>Submit</button>
             </form>
         </div>
     );

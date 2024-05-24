@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { FaTrash } from 'react-icons/fa'; 
 interface Laboratory {
   id: number;
   name: string;
@@ -59,7 +59,7 @@ const LaboratoryManager: React.FC = () => {
               <td>{laboratory.latitude}</td>
               <td>
                 <button onClick={() => deleteLaboratory(laboratory.id)}>
-                  Delete
+                <FaTrash />  Delete
                 </button>
               </td>
             </tr>

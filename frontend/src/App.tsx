@@ -8,14 +8,16 @@ import researcher2 from './Components/images/researcher2.jpg';
 import researcher3 from './Components/images/researcher3.jpg';
 import { Link } from 'react-router-dom';
 import ouahmanePic from './assets/img/chercheurs/Ouahmane.png';
-import { FaUserMd, FaBed, FaFlask, FaMedal } from 'react-icons/fa';
+import { FaUserMd, FaMicroscope, FaFlask, FaMedal } from 'react-icons/fa';
 import lol from './assets/img/chercheurs/Aatila_Mustapha2.jpg';
-
+import DoctorantsPage from './Components/DoctorantPage'; 
 import logo from './Components/images/logo.png' 
 import ProjetsSection from './Components/projets';
 import EquipesSection from './Components/equipesection';
 import Footer from './Components/footer';
 import ChercheursSection from './Components/researchers';
+import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+
 // emplacez Ri par le préfixe de votre bibliothèque d'icônes
 
 const logoStyle = {
@@ -136,7 +138,8 @@ const HomePage: React.FC = () => {
                       <h3>Prof. Hassan Ouahmane</h3>
                       <h4>Directeur du laboratoire</h4>
                       <p>
-                        {/* Ajoutez votre texte ici */}
+                      Bienvenue au laboratoire de Technologies de l'Information {labName}. Notre mission est de promouvoir l'excellence en recherche et en formation dans le domaine des technologies de l'information. Grâce à nos équipes de chercheurs dévoués et à nos collaborations avec des partenaires académiques et industriels, nous visons à faire avancer les connaissances et à développer des solutions innovantes qui répondent aux défis contemporains. Nous sommes fiers de nos réalisations et nous nous engageons à continuer à contribuer à la science et à la société. Rejoignez-nous dans cette passionnante aventure scientifique.
+              
                       </p>
                     </div>
                   </div>
@@ -157,7 +160,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div className="count-box">
-              <FaBed className="icon" /> {/* Utilisez l'icône FaBed */}
+            <FaMicroscope className="icon" /> {/* Utilisez l'icône FaMicroscope */}
               <span data-toggle="counter-up">3</span>
               <p>Equipes</p>
             </div>
@@ -186,75 +189,44 @@ const HomePage: React.FC = () => {
       
     <section id="testimonials" className="testimonials" style={{ backgroundColor: 'slategrey' }}>
       <div className="container">
-        <div className="section-title">
-          <h2>Doctorants</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-        <div className="testimonials-carousel" style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
-            <div className="testimonial-item">
-              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
-              <h3>AATILA Mustapha</h3>
-              <h4>Master en Informatique</h4>
-              <p>
-                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                Détection, classification et prédiction du Kératocône.
-                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
-            <div className="testimonial-item">
-              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <p>
-                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div className="testimonial-wrap" style={{ flex: '0 0 auto', width: '30%' }}>
-            <div className="testimonial-item">
-              <img src={lol} className="testimonial-img" alt="" style={{ width: '30%' }} />
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-              <p>
-                <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-        </div>
+        
+      <DoctorantsPage />
+       
 
       </div>
     </section>
     <section id="contact" className="contact">
-          <div className="container">
-            <div className="section-title">
-              <h2>Contact</h2>
-              <div className="address">
-                <i className="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>{address}</p>
-              </div>
-              <div className="phone">
-                <i className="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>{phoneNumber}</p>
-              </div>
-            </div>
+  <div className="container">
+    <div className="section-title">
+      <h2>Contact</h2>
+      <div className="contact-details">
+        <div className="contact-item">
+          <div className="contact-icon">
+            <i className="icofont-google-map"></i>
+            <FaMapMarkerAlt /> {/* Ajoutez l'icône de localisation */}
           </div>
-          <div>
-          <iframe style={{ border: '0', width: '100%', height: '350px' }} src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=31.718790,-8.096950&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe>
+          <div className="contact-info">
+            <h4>Location:</h4>
+            <p>{address}</p>
+          </div>
+        </div>
+        <div className="contact-item">
+          <div className="contact-icon">
+            <i className="icofont-phone"></i>
+            <FaPhone /> {/* Ajoutez l'icône d'appel téléphonique */}
+          </div>
+          <div className="contact-info">
+            <h4>Call:</h4>
+            <p>{phoneNumber}</p>
+          </div>
+        </div>
+      </div>
     </div>
-        </section>
+  </div>
+  <div>
+    <iframe style={{ border: '0', width: '100%', height: '350px' }} src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=31.718790,-8.096950&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe>
+  </div>
+</section>
 
 
       </main>

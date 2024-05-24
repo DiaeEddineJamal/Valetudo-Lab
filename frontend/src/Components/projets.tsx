@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCode, FaDatabase, FaNetworkWired, FaRobot, FaShieldAlt, FaBrain } from 'react-icons/fa';
 
 const ProjetsSection: React.FC = () => {
   return (
@@ -7,10 +8,7 @@ const ProjetsSection: React.FC = () => {
         <div className="section-title">
           <h2><u>Projets de recherche</u></h2>
           <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
+            Explorez les projets passionnants sur lesquels notre laboratoire travaille actuellement.
           </p>
         </div>
 
@@ -18,14 +16,13 @@ const ProjetsSection: React.FC = () => {
           <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div className="icon-box">
               <div className="icon">
-                <i className="icofont-heart-beat"></i>
+                <FaCode style={{ width: '1000000px'}}/>
               </div>
               <h4>
-                <a href="">Lorem Ipsum</a>
+                <a href="#">Développement de logiciels</a>
               </h4>
               <p>
-                Voluptatum deleniti atque corrupti quos dolores et quas
-                molestias excepturi
+                Création et optimisation de logiciels pour diverses applications industrielles et commerciales.
               </p>
             </div>
           </div>
@@ -33,14 +30,13 @@ const ProjetsSection: React.FC = () => {
           <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div className="icon-box">
               <div className="icon">
-                <i className="icofont-drug"></i>
+                <FaDatabase style={{ width: '1000000px'}} />
               </div>
               <h4>
-                <a href="">Sed ut perspiciatis</a>
+                <a href="#">Gestion des données</a>
               </h4>
               <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore
+                Recherche sur les méthodes de stockage, de récupération et de gestion des grandes quantités de données.
               </p>
             </div>
           </div>
@@ -48,14 +44,13 @@ const ProjetsSection: React.FC = () => {
           <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div className="icon-box">
               <div className="icon">
-                <i className="icofont-dna-alt-2"></i>
+                <FaNetworkWired style={{ width: '1000000px'}}/>
               </div>
               <h4>
-                <a href="">Magni Dolores</a>
+                <a href="#">Réseaux et communication</a>
               </h4>
               <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia
+                Étude des architectures de réseaux et des protocoles de communication pour améliorer la connectivité.
               </p>
             </div>
           </div>
@@ -63,14 +58,27 @@ const ProjetsSection: React.FC = () => {
           <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div className="icon-box">
               <div className="icon">
-                <i className="icofont-heartbeat"></i>
+                <FaRobot style={{ width: '1000000px'}}/>
               </div>
               <h4>
-                <a href="">Nemo Enim</a>
+                <a href="#">Intelligence artificielle</a>
               </h4>
               <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis
+                Développement d'algorithmes d'apprentissage automatique et de systèmes intelligents.
+              </p>
+            </div>
+          </div>
+          
+          <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div className="icon-box">
+              <div className="icon">
+                <FaShieldAlt style={{ width: '1000000px'}} />
+              </div>
+              <h4>
+                <a href="#">Cybersécurité</a>
+              </h4>
+              <p>
+                Recherche sur les techniques de protection contre les cybermenaces et les attaques informatiques.
               </p>
             </div>
           </div>
@@ -78,32 +86,18 @@ const ProjetsSection: React.FC = () => {
           <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div className="icon-box">
               <div className="icon">
-                <i className="icofont-disabled"></i>
-              </div>
-              <h4>
-                <a href="">Dele cardo</a>
-              </h4>
-              <p>
-                Quis consequatur saepe eligendi voluptatem consequatur dolor
-                consequuntur
-              </p>
-            </div>
-          </div>
+              <FaBrain style={{ width: '100%' }}/>
 
-          <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div className="icon-box">
-              <div className="icon">
-                <i className="icofont-autism"></i>
               </div>
               <h4>
-                <a href="">Divera don</a>
+                <a href="#">Informatique cognitive</a>
               </h4>
               <p>
-                Modi nostrum vel laborum. Porro fugit error sit minus sapiente
-                sit aspernatur
+                Étude des systèmes informatiques capables de simuler le comportement humain et de résoudre des problèmes complexes.
               </p>
             </div>
           </div>
+          
         </div>
       </div>
     </section>

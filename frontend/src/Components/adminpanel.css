@@ -1,6 +1,6 @@
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: white;
   margin: 0;
   padding: 0;
 
@@ -62,3 +62,25 @@ nav ul li a:hover {
 .p-stepper .p-stepper-header {
   width: 100%;
 }
+/* Style pour le conteneur du formulaire */
+.StepperPanel {
+  position: relative; /* Position relative pour le positionnement des boutons */
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style pour le conteneur des boutons */
+.button-container {
+  position: absolute; /* Position absolue pour positionner les boutons par rapport au conteneur du formulaire */
+  top: 25%; /* Déplacer le conteneur à 50% de la hauteur du parent */
+  transform: translateY(-50%); /* Centrer verticalement le conteneur */
+  display: flex; /* Utiliser flexbox pour les boutons */
+  margin-left: 640px;
+}
+
+/* Style pour chaque bouton */
+.button-container button {
+  margin: 0 5px; /* Espacement entre les boutons */
+}
+

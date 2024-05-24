@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Deletemem.css'
-
+import { FaTrash } from 'react-icons/fa';
 interface Member {
   id: number;
   name: string;
@@ -54,7 +54,7 @@ const Deletemem: React.FC = () => {
               <td>{member.keyword}</td>
               <td>{member.isDoctorant ? 'Yes' : 'No'}</td>
               <td>
-                <button onClick={() => deleteMember(member.id)}>Delete</button>
+            <button onClick={() => deleteMember(member.id)} >     <FaTrash /> Delete</button>  
               </td>
             </tr>
           ))}

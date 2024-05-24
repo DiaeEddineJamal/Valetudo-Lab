@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { FaTrash } from 'react-icons/fa'; 
 interface Team {
   id: number;
   name: string;
@@ -49,7 +49,7 @@ const TeamManager: React.FC = () => {
               <td>{team.name}</td>
               <td>{team.description}</td>
               <td>
-                <button onClick={() => deleteTeam(team.id)}>Delete</button>
+                <button onClick={() => deleteTeam(team.id)}>  <FaTrash />  Delete</button>
               </td>
             </tr>
           ))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { FaTrash } from 'react-icons/fa';
 interface Publication {
   id: number;
   reference: string;
@@ -54,9 +54,7 @@ const PublicationManager: React.FC = () => {
                 {publication.members.map((member) => member.name).join(', ')}
               </td>
               <td>
-                <button onClick={() => deletePublication(publication.id)}>
-                  Delete
-                </button>
+                <button onClick={() => deletePublication(publication.id)}><FaTrash /> Delete</button>
               </td>
             </tr>
           ))}
