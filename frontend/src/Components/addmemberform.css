@@ -1,7 +1,9 @@
 /* AddMemberForm.css */
+
+/* Styles for desktop screens */
 h2 {
   text-align: center;
-  margin-bottom: 24px; /* Ajustez selon vos besoins */
+  margin-bottom: 24px;
 }
 
 form {
@@ -12,17 +14,6 @@ form {
   max-width: 500px;
   margin: 50px auto;
   animation: fadeIn 0.6s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 label {
@@ -87,4 +78,17 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #3a7dc2;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for mobile screens */
+@media only screen and (max-width: 500px) {
+  form {
+    padding: 20px;
+  }
+  input[type="text"],
+  select,
+  button[type="submit"] {
+    padding: 12px;
+    font-size: 14px;
+  }
 }

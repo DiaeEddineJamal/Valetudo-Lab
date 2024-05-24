@@ -50,6 +50,7 @@ const TeamForm: React.FC = () => {
       <div>
         <label htmlFor="description">Description:</label>
         <textarea
+        style={{ width: '400px', padding: '100px'}}
           id="description"
           name="description"
           value={team.description}

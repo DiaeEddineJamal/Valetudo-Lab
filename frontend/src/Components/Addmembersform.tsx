@@ -140,8 +140,8 @@ const MemberForm: React.FC = () => {
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="impulse">Impulse:</label>
-        <textarea
+        <label htmlFor="impulse" >Impulse:</label>
+        <textarea style={{ width: '380px'}}
           id="impulse"
           name="impulse"
           value={formData.impulse}

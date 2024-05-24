@@ -64,11 +64,11 @@ const AddLaboratoryForm: React.FC = () => {
                 </div>
                 <div>
                     <label htmlFor="longitude">Longitude:</label>
-                    <input type="number" step="0.000001" id="longitude" name="longitude" value={formData.longitude} onChange={handleChange} />
+                    <input type="number" step="0.000001" id="longitude" name="longitude" value={formData.longitude} onChange={handleChange} style={{ width: '400px', padding: '10px'}}/>
                 </div>
                 <div>
                     <label htmlFor="latitude">Latitude:</label>
-                    <input type="number" step="0.000001" id="latitude" name="latitude" value={formData.latitude} onChange={handleChange} />
+                    <input type="number" step="0.000001" id="latitude" name="latitude" value={formData.latitude} onChange={handleChange} style={{ width: '400px', padding: '10px'}} />
                 </div>
                 <button type="submit"  style={{
           

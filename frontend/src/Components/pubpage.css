@@ -71,3 +71,45 @@ body {
   color: #666;
   margin: 0;
 }
+/* Base styles */
+.add-publication-form {
+  max-width: 300px; /* Adjusted max-width for larger screens */
+  margin: 150px auto; /* Center the form vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Reduce margin-bottom for better spacing */
+}
+
+label {
+  font-weight: bold;
+}
+
+.input-error {
+  border-color: #ff0000;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+  .add-publication-form {
+    max-width: 90%; /* Adjust max-width for smaller screens */
+    margin: 50px auto; /* Adjust margin for smaller screens */
+  }
+}

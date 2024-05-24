@@ -59,4 +59,22 @@
   button[type="submit"] {
     width: 100%;
   }
+  /* Media query pour les écrans de taille moyenne */
+@media only screen and (max-width: 768px) {
+  /* Réduire la largeur du formulaire pour les écrans plus petits */
+  form {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto; /* Centrer le formulaire horizontalement */
+  }
   
+  /* Réduire la largeur des champs de saisie pour les écrans plus petits */
+  .input-group {
+    width: 100%;
+  }
+  
+  /* Réduire la largeur du bouton de soumission pour les écrans plus petits */
+  button[type="submit"] {
+    width: 100%;
+  }
+}
