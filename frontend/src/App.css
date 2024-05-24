@@ -1107,3 +1107,57 @@ nav ul li a {
 .contact-info {
   display: inline-block;
 }
+
+@media (max-width: 768px) {
+  /* Ajoutez vos ajustements CSS ici */
+  nav {
+    padding: 5px 10px; /* Réduire encore plus le rembourrage */
+  }
+  
+  nav ul li {
+    margin: 0 5px; /* Réduire encore plus la marge entre les éléments */
+  }
+  
+  nav ul li a {
+    font-size: 14px; /* Réduire davantage la taille de la police */
+  }
+
+  .homepage {
+    padding: 30px 10px; /* Réduire l'espacement dans la section d'accueil */
+  }
+
+  .homepage h2 {
+    font-size: 24px; /* Réduire la taille de la police */
+  }
+
+  .slick-slider {
+    width: 90%; /* Réduire la largeur du carrousel */
+  }
+
+  .card {
+    width: 90%; /* Réduire la largeur des cartes */
+  }
+
+  .row {
+    flex-wrap: wrap; /* Permettre le retour à la ligne des cartes */
+  }
+
+  .col-md-4 {
+    flex: 0 0 100%; /* Faire en sorte que chaque carte prenne 100% de largeur sur les petits écrans */
+    max-width: 100%; /* Ajuster la largeur maximale */
+  }
+
+  .lab-presentation,
+  .objectifs {
+    width: 100%; /* Ajuster la largeur des sections de présentation */
+  }
+
+  .chercheurs .member {
+    margin-right: 0; /* Aucun espacement entre les membres sur les petits écrans */
+  }
+
+  .chercheurs .member img.sp_img {
+    width: 80px; /* Réduire la taille des images de membre */
+    height: 80px;
+  }
+}

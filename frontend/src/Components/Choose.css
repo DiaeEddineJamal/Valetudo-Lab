@@ -65,3 +65,29 @@
     font-size: 1.2rem;
     color: #4b5563;
   }
+  /* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+  .app-container,
+  .home-container,
+  .page-container {
+    width: 90%; /* Reduire la largeur des conteneurs */
+    padding: 2rem; /* Réduire le remplissage des conteneurs */
+    max-width: 100%; /* S'assurer que les conteneurs ne dépassent pas la largeur de l'écran */
+  }
+
+  .home-container h1,
+  .page-container h1 {
+    font-size: 2rem; /* Réduire la taille du titre */
+    margin-bottom: 1.5rem; /* Réduire l'espacement sous le titre */
+  }
+
+  .button-container {
+    margin-top: 1.5rem; /* Réduire l'espacement au-dessus du conteneur de boutons */
+  }
+
+  .button {
+    padding: 1rem 2rem; /* Réduire le rembourrage des boutons */
+    font-size: 1.2rem; /* Réduire la taille de la police des boutons */
+    margin: 0 0.5rem; /* Réduire l'espacement entre les boutons */
+  }
+}

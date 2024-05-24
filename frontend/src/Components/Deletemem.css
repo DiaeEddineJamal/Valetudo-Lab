@@ -56,3 +56,26 @@ table {
   button:hover {
     background-color: #fdfdfd;
   }
+  /* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* Réduire la taille du titre pour les écrans plus petits */
+  }
+
+  .container {
+    padding: 0 1rem; /* Réduire le padding du conteneur pour s'adapter aux écrans plus petits */
+  }
+
+  table {
+    margin: 0 auto; /* Centrer le tableau horizontalement pour les écrans plus petits */
+  }
+
+  th, td {
+    padding: 0.8rem; /* Réduire le padding des cellules pour s'adapter aux écrans plus petits */
+  }
+
+  button {
+    font-size: 0.9rem; /* Réduire la taille de la police des boutons pour les écrans plus petits */
+    padding: 0.4rem 0.8rem; /* Réduire le padding des boutons pour les écrans plus petits */
+  }
+}

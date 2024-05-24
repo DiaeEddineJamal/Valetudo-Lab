@@ -84,3 +84,34 @@ nav ul li a:hover {
   margin: 0 5px; /* Espacement entre les boutons */
 }
 
+/* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Display navbar items vertically */
+    align-items: center; /* Center navbar items horizontally */
+  }
+
+  nav ul li {
+    display: block; /* Display navbar items as blocks */
+    margin: 10px 0; /* Add margin between navbar items */
+  }
+
+  .admin-panel-card {
+    margin-top: 100px; /* Increase margin-top to position the stepper below the navbar */
+  }
+
+  .StepperPanel {
+    width: 90%; /* Adjust width of the StepperPanel */
+  }
+
+  .button-container {
+    position: static; /* Change position to static for button container */
+    flex-direction: column; /* Display buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin: 20px auto; /* Adjust margin */
+  }
+
+  .button-container button {
+    margin: 5px 0; /* Adjust margin for buttons */
+  }
+}

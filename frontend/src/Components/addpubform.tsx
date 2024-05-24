@@ -24,11 +24,11 @@ const AddPublicationForm: React.FC = () => {
   };
 
   return (
-    <form className="add-publication-form" onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form className="add-publication-form" onSubmit={handleSubmit} style={{ width: '700px'}}>
+      <div className="form-group" >
       <h2>Ajouter une publication : </h2>
         <label htmlFor="reference">Reference:</label>
-        <input
+        <input style={{ width: '250px', padding: '100px'}}
           type="text"
           id="reference"
           className="form-control"

@@ -112,3 +112,27 @@
     background: #333;
     color: #f0f0f0;
 }
+/* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+    .doctorants-list {
+      flex-direction: column; /* Afficher les éléments en colonne pour les écrans plus petits */
+      gap: 10px; /* Réduire l'espacement entre les éléments */
+    }
+  
+    .doctorant-item {
+      width: 100%; /* Ajuster la largeur pour occuper toute la largeur de l'écran */
+      max-width: none; /* Réinitialiser la largeur maximale */
+    }
+  
+    .doctorant-item img {
+      width: 100%; /* Ajuster la largeur de l'image pour occuper toute la largeur de l'élément */
+      max-width: none; /* Réinitialiser la largeur maximale */
+      margin-right: 0; /* Supprimer la marge à droite de l'image */
+      margin-bottom: 10px; /* Ajouter un espace en bas de l'image */
+    }
+  
+    .doctorants-page h2 {
+      font-size: 28px; /* Réduire la taille du titre pour les écrans plus petits */
+    }
+  }
+  

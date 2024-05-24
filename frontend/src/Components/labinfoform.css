@@ -74,3 +74,35 @@
   .add-laboratory-form .submit-container button[type="submit"]:hover {
     background-color: #564dff;
   }
+  /* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+  .add-laboratory-form {
+    padding: 1rem; /* Réduire le remplissage du formulaire pour les écrans plus petits */
+    max-width: 90%; /* Réduire la largeur maximale du formulaire pour les écrans plus petits */
+  }
+
+  .add-laboratory-form h2 {
+    font-size: 24px; /* Réduire la taille du titre pour les écrans plus petits */
+    margin-bottom: 1rem; /* Réduire l'espacement sous le titre pour les écrans plus petits */
+  }
+
+  .add-laboratory-form input {
+    padding: 0.5rem; /* Réduire le remplissage des champs de saisie pour les écrans plus petits */
+    font-size: 0.9rem; /* Réduire la taille de la police des champs de saisie pour les écrans plus petits */
+    height: 2rem; /* Réduire la hauteur des champs de saisie pour les écrans plus petits */
+  }
+
+  .add-laboratory-form .submit-container {
+    align-items: flex-start; /* Aligner les éléments du conteneur de soumission au début pour les écrans plus petits */
+  }
+
+  .add-laboratory-form .submit-container input[name="latitude"] {
+    margin-bottom: 0.5rem; /* Réduire l'espacement sous le champ de saisie pour les écrans plus petits */
+  }
+
+  .add-laboratory-form .submit-container button[type="submit"] {
+    padding: 0.5rem 1rem; /* Réduire le remplissage du bouton de soumission pour les écrans plus petits */
+    font-size: 0.9rem; /* Réduire la taille de la police du bouton de soumission pour les écrans plus petits */
+    margin-top: 0.5rem; /* Ajouter de l'espacement au-dessus du bouton de soumission pour les écrans plus petits */
+  }
+}

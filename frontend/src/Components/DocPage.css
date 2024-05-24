@@ -49,3 +49,27 @@
   font-weight: 700; /* Graisse du titre */
   color: white; /* Couleur du titre */
 }
+/* DocPage.css */
+
+.testimonials-carousel {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between;
+}
+
+.testimonial-wrap {
+  flex: 0 0 calc(50% - 10px); /* Two items per row with some space in between */
+  margin-bottom: 20px; /* Add some space between rows */
+}
+
+@media (max-width: 768px) {
+  .testimonial-wrap {
+    flex: 0 0 calc(50% - 20px); /* Deux témoignages par ligne sur les appareils jusqu'à 768px de largeur */
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-wrap {
+    flex: 0 0 calc(100% - 20px); /* Un témoignage par ligne sur les appareils jusqu'à 576px de largeur */
+  }
+}

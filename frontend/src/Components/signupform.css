@@ -72,3 +72,60 @@ button[type="submit"] {
 #email {
     margin-bottom: 1px;
 }
+.signup-title,
+.login-title {
+  color: #393939; /* Simplified color values */
+}
+
+.form-container {
+  background-color: #fffbfb;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(60, 58, 58, 0.3);
+  max-width: 300px;
+  opacity: 0.98;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  padding: 0 15px; /* Combined padding */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  animation: fadeInUp 1.5s ease;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 30px); /* Adjusted width to accommodate padding */
+  padding: 10px;
+  border: 1px solid #098a00;
+  border-radius: 5px;
+  margin-top: 5px; /* Added margin-top for better spacing */
+}
+
+button[type="submit"] {
+  width: calc(100% - 110px); /* Adjusted width to fit container */
+  margin: 0 55px 10px; /* Adjusted margins for better spacing */
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+#username {
+  margin-bottom: -1.1px; /* Adjusted margin for alignment */
+}
+
+#email {
+  margin-bottom: 1px; /* Adjusted margin for alignment */
+}
+
