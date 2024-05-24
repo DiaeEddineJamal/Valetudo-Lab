@@ -57,7 +57,12 @@ const TeamForm: React.FC = () => {
           required
         />
       </div>
-      <button type="submit">Add Team</button>
+      <button type="submit" style={{
+          
+          marginTop: '30px', // Ajuster pour abaisser le bouton
+          
+          marginLeft: '130px', // Centrer le bouton horizontalement
+        }}>Add Team</button>
     </form>
   );
 };

@@ -1,4 +1,8 @@
 /* AddMemberForm.css */
+h2 {
+  text-align: center;
+  margin-bottom: 24px; /* Ajustez selon vos besoins */
+}
 
 form {
   background-color: #fff;

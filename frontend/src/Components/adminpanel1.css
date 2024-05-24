@@ -1,0 +1,87 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Minimum height of the viewport */
+  }
+  
+  nav {
+    background-color: rgba(17, 17, 17, 0.9); /* Semi-transparent background color for navbar */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center; /* Center the navbar content */
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar is on top of other elements */
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the items */
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px; /* Add margin between navbar items */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition for color and transform */
+  }
+  
+  nav ul li a:hover {
+    color: #ccc;
+    transform: translateY(-3px); /* Apply a vertical translation on hover */
+  }
+  
+  .admin-panel-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Add margin-top to position the stepper below the navbar */
+  }
+  
+  .p-stepper .p-stepper-header {
+    width: 100%;
+  }
+  /* Style pour le conteneur du formulaire */
+  .StepperPanel {
+    position: relative; /* Position relative pour le positionnement des boutons */
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style pour le conteneur des boutons */
+  .button-container {
+    position: absolute; /* Position absolue pour positionner les boutons par rapport au conteneur du formulaire */
+    top: 25%; /* Déplacer le conteneur à 50% de la hauteur du parent */
+    transform: translateY(-50%); /* Centrer verticalement le conteneur */
+    display: flex; /* Utiliser flexbox pour les boutons */
+    margin-left: 640px;
+  }
+  
+  /* Style pour chaque bouton */
+  .button-container button {
+    margin: 0 5px; /* Espacement entre les boutons */
+  }
+  
+  

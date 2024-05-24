@@ -160,7 +160,13 @@ const MemberForm: React.FC = () => {
           onChange={handleImageChange}
         />
       </div>
-      <button type="submit">Save</button>
+      
+      <button type="submit" style={{
+          
+          marginTop: '30px', // Ajuster pour abaisser le bouton
+          
+          marginLeft: '130px', // Centrer le bouton horizontalement
+        }}>Save</button>
     </form>
   );
 };

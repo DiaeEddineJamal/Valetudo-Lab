@@ -69,7 +69,7 @@ const Footer = () => {
 
             <div className="col-lg-4 col-md-6 footer-newsletter">
               <h4>Join Our Newsletter</h4>
-              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+              <p>Rejoignez-nous en inscrivant votre email :</p>
               <form action="" method="post">
                 <input type="email" name="email" /><input type="submit" value="Subscribe" />
               </form>
@@ -89,7 +89,7 @@ const Footer = () => {
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
         </div>
-        <div className="social-links text-center text-md-right pt-3 pt-md-0" style={{ marginLeft: 900 }}>
+        <div className="social-links text-center text-md-right pt-3 pt-md-0" style={{ marginLeft: 800 }}>
           <a href="#"><RiTwitterFill /></a>
           <a href="#"><RiFacebookFill /></a>
           <a href="#"><RiInstagramFill /></a>

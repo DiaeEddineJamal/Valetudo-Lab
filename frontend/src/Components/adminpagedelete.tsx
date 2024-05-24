@@ -6,14 +6,15 @@ import AddMemberForm from './Addmembersform';
 import AddPublicationForm from './addpubform';
 import AddLaboratoryForm from './addlabinfos';
 import TeamForm from './addteamsform';
-import './adminpanel.css';
+import './adminpanel1.css';
 import { Link } from 'react-router-dom';
 import logo from './images/logo.png'
 import Deletemem from './Deletemem';
 import PublicationManager from './Deletepublications';
 import LaboratoryManager from './Deletelabinfos';
 import TeamManager from './Deleteteamsinfos';
-
+import { FaTrash } from 'react-icons/fa';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const logoStyle = {
   width: '130px',
@@ -52,35 +53,39 @@ const AdminPaneldelete: React.FC = () => {
       </nav>
       </div>
       <CustomStepper ref={stepperRef} style={{ flexBasis: '100%' }} activeIndex={currentStep} onActiveIndexChange={(e) => handleStepChange(e.value)}>
-        <StepperPanel header="Delete Members">
-          <Deletemem />
-          <div className="flex pt-4 justify-content-between">
+        <StepperPanel header="Delete Members" >
+        <div className="flex pt-4 justify-content-between">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" onClick={() => stepperRef.current?.prevCallback()} disabled={currentStep === 0} />
             <Button label="Next" icon="pi pi-arrow-right" iconPos="right" onClick={() => stepperRef.current?.nextCallback()} />
           </div>
+          <Deletemem />
+         
         </StepperPanel>
        
-
+        
 
         <StepperPanel header="Delete Publication">
-          <PublicationManager/>
-          <div className="flex pt-4 justify-content-between">
+        <div className="flex pt-4 justify-content-between">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" onClick={() => stepperRef.current?.prevCallback()} />
             <Button label="Next" icon="pi pi-arrow-right" iconPos="right" onClick={() => stepperRef.current?.nextCallback()} />
           </div>
+          <PublicationManager/>
+        
         </StepperPanel>
         <StepperPanel header="Delete Laboratory Infos">
-          <LaboratoryManager />
-          <div className="flex pt-4 justify-content-between">
+        <div className="flex pt-4 justify-content-between">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" onClick={() => stepperRef.current?.prevCallback()} />
             <Button label="Next" icon="pi pi-arrow-right" iconPos="right" onClick={() => stepperRef.current?.nextCallback()} />
           </div>
+          <LaboratoryManager />
+         
         </StepperPanel>
         <StepperPanel header="Delete Teams Infos">
-          <TeamManager />
-          <div className="flex pt-4 justify-content-start">
+        <div className="flex pt-4 justify-content-start">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" onClick={() => stepperRef.current?.prevCallback()} />
           </div>
+          <TeamManager />
+          
         </StepperPanel>
       </CustomStepper>
     </div>

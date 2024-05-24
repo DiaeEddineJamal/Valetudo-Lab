@@ -1,21 +1,26 @@
-/* Deletemem.css */
 
 /* Overall container */
 
+h1 {
+  text-align: center;
+  margin-bottom: 24px; /* Ajustez selon vos besoins */
+  color: #333;
+  font-size: 2.5rem;
+}
+ 
   
-  /* Heading */
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
-  
-  /* Table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
+  /* Overall container */
+.container {
+  width: 100%; /* Assure que le conteneur occupe toute la largeur */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Centrer le tableau horizontalement */
+}
+
   
   thead {
     background-color: #f1f1f1;
@@ -39,7 +44,7 @@
   /* Button */
   button {
     
-    color: #fff;
+    color: #cd1515;
     border: none;
     border-radius: 4px;
     padding: 0.5rem 1rem;
@@ -49,5 +54,5 @@
   }
   
   button:hover {
-    background-color: #c0392b;
+    background-color: #fdfdfd;
   }

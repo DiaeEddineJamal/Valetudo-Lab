@@ -26,6 +26,7 @@ const AddPublicationForm: React.FC = () => {
   return (
     <form className="add-publication-form" onSubmit={handleSubmit}>
       <div className="form-group">
+      <h2>Ajouter une publication : </h2>
         <label htmlFor="reference">Reference:</label>
         <input
           type="text"
@@ -47,7 +48,13 @@ const AddPublicationForm: React.FC = () => {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary">Add Publication</button>
+      
+      <button type="submit" className="btn btn-primary" style={{
+          
+          marginTop: '30px', // Ajuster pour abaisser le bouton
+          
+          marginLeft: '50px', // Centrer le bouton horizontalement
+        }}>Add</button>
     </form>
   );
 };
